@@ -98,7 +98,7 @@
       background: #eee;
       .stage {
         height: 100%;
-        font-size: .12px;
+        font-size: 12px;
         line-height: 1;
         padding: 1em;
       }
