@@ -88,6 +88,16 @@
     float: none;
     *zoom: 1;
   }
+  .clear-box {
+    display: table;
+    clear: both;
+    float: none;
+    *zoom: 1;
+  }
+  @keyframes rotateY {
+    from {transform: rotateY(0deg);}
+    to   {transform: rotateY(360deg);}
+  }
 </style>
 
 <!-- chart style -->
