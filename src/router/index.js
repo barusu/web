@@ -5,7 +5,7 @@ import Login from '@/components/login';
 import Unboxing from '@/components/page/unboxing';
 import Index from '@/components/page/index';
 import EditView from '@/components/page/editView';
-import HelloWorld from '@/components/HelloWorld';
+import Component from '@/components/page/component';
 import Icon from '@/components/page/icon';
 
 Vue.use(Router);
@@ -19,8 +19,8 @@ export default new Router({
     {path: '/addview', name: 'addview', component: EditView, meta: {requiresAuth: true}},
     {path: '/editview/:id', name: 'editview', component: EditView, meta: {requiresAuth: true}},
     {path: '/unboxing', name: 'unboxing', component: Unboxing, meta: {requiresAuth: true}},
-    {path: '/component', name: 'component', component: HelloWorld},
+    {path: '/component', name: 'component', component: Component},
     {path: '/ui', name: 'ui', component: UI},
-    {path: '/about', name: 'about', component: HelloWorld}
+    {path: '/about', name: 'about', component: Component}
   ]
 });
