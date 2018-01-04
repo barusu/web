@@ -11,7 +11,7 @@
           </label>
           <ul class="oo-menu-item-list">
             <li class="oo-menu-item"> <router-link :to="{name: 'color'}">Color</router-link> </li>
-            <li class="oo-menu-item"> <router-link :to="{name: 'ui'}">Button</router-link> </li>
+            <li class="oo-menu-item"> <router-link :to="{name: 'button'}">Button</router-link> </li>
           </ul>
         </p>
         <p class="oo-menu-item"> <router-link :to="{name: 'ui'}">UI</router-link> </p>
@@ -166,6 +166,20 @@
         line-height: 1.5;
         color: #678;
         font-size: .14rem;
+        margin-bottom: 1em;
+        &.tip {
+          display: inline-block;
+          margin: 0;
+          line-height: 1;
+          border-radius: 1px;
+          background: #fdbc40;
+          box-shadow: 0 0 0 0.5em #fdbc40;
+          font-size: 12px;
+          color: #fff;
+        }
+        .keyword {
+          color: #ff3102;
+        }
       }
     }
     .footer {

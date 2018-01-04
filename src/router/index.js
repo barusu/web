@@ -8,6 +8,7 @@ import EditView from '@/components/page/editView';
 import Icon from '@/components/page/icon';
 import Component from '@/components/page/component';
 import Color from '@/components/page/components/color';
+import Button from '@/components/page/components/button';
 import Stickies from '@/components/page/stickies';
 
 Vue.use(Router);
@@ -22,8 +23,9 @@ export default new Router({
     {path: '/editview/:id', name: 'editview', component: EditView, meta: {requiresAuth: true}},
     {path: '/unboxing', name: 'unboxing', component: Unboxing, meta: {requiresAuth: true}},
     {path: '/component', component: Component, children: [
-      {path: '', name: 'component', component: UI},
-      {path: 'color', name: 'color', component: Color}
+      {path: '', name: 'component', component: Color},
+      {path: 'color', name: 'color', component: Color},
+      {path: 'button', name: 'button', component: Button}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies},
     {path: '/ui', name: 'ui', component: UI},
