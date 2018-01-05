@@ -1,6 +1,6 @@
 <template>
-  <label class="oo-button" :class="[type, {'disabled': disabled}]">
-    <span class="btn" @click="click" :style="style" :class="effect"><slot></slot></span>
+  <label class="oo-button" :class="[type, shape, {'disabled': disabled, 'loading': loading}]">
+    <span class="btn" @click="click" :style="style" :class="effect"><i v-if="loading" class="loading"></i><o-svg v-if="icon && !loading" :type="icon"></o-svg><span><slot></slot></span></span>
   </label>
 </template>
 
@@ -9,7 +9,7 @@
     data() {
       return {};
     },
-    props: ['type', 'disabled', 'width', 'effect'],
+    props: ['type', 'disabled', 'width', 'effect', 'shape', 'icon', 'loading'],
     methods: {
       click() {
         if(this.disabled) return;
@@ -33,9 +33,17 @@
     transition: filter .34s;
     &.disabled {
       filter: grayscale(100%);
+      cursor: not-allowed;
       .btn {
         background: #ddd;
-        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
+    &.loading {
+      cursor: wait;
+      filter: opacity(66%);
+      .btn {
+        pointer-events: none;
       }
     }
     .btn {
@@ -51,7 +59,34 @@
       filter: brightness(100%);
       user-select: none;
       cursor: pointer;
-      transition: background .34s, border .34s, filter .34s;
+      transition: background .34s, border .34s, filter .34s, color .34s;
+      svg {
+        height: 1.4em;
+        margin: 0 .5em;
+        &:first-child {
+          margin-left: -.5em;
+        }
+        &:last-child {
+          margin-right: -.5em;
+        }
+      }
+      .loading {
+        display: inline;
+        margin: 0 .5em 0 -.5em;
+        &::after {
+          content: '';
+          display: inline-block;
+          vertical-align: middle;
+          margin: .2em;
+          width: 1em;
+          height: 1em;
+          border: 1px solid transparent;
+          border-radius: 50%;
+          border-left-color: inherit;
+          transform-origin: 50% 50%;
+          animation: buttonEffectCircle 1s infinite linear;
+        }
+      }
       &:hover {
         border-color: #409eff;
         color: #409eff;
@@ -72,6 +107,7 @@
           box-shadow: 0 0 0 6px;
           color: #50bfff;
           transition: all .4s linear;
+          z-index: -1;
         }
         &:active {
           &::before {
@@ -80,6 +116,22 @@
             opacity: 0.618;
           }
         }
+      }
+    }
+    &.circle {
+      .btn {
+        border-radius: 1em;
+        box-sizing: content-box;
+        width: 2em;
+        padding: 0;
+        svg {
+          margin: 0;
+        }
+      }
+    }
+    &.rectangle {
+      .btn {
+        border-radius: 0;
       }
     }
     &.primary {
@@ -140,10 +192,8 @@
       }
     }
   }
-  @keyframes buttonEffectSpread {
-    to {
-      opacity: 0;
-      border-shadow: 0 0 0 6px;
-    }
+  @keyframes buttonEffectCircle {
+    0% {transform: rotate(0deg); }
+    100% {transform: rotate(360deg); }
   }
 </style>
