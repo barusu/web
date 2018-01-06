@@ -50,6 +50,18 @@
     <p>撒点特效.</p>
     <div class="clearfix">
       <div class="item">
+        <o-button effect="spread" type="info" icon="bilibili" loading="true">Rectangle</o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" loading="true">Spread</o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" type="dashed">Spread</o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" type="dotted">Spread</o-button>
+      </div>
+      <div class="item">
         <o-button effect="spread" type="primary">Spread</o-button>
       </div>
       <div class="item">
@@ -63,6 +75,45 @@
       </div>
       <div class="item">
         <o-button effect="spread" type="success">Spread</o-button>
+      </div>
+    </div>
+    <p>再加点图标.</p>
+    <div class="clearfix">
+      <div class="item">
+        <o-button effect="spread"><o-svg type="bilibili"></o-svg><span>Spread</span></o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" type="dashed">Spread</o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" type="dotted">Spread</o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" type="primary">Spread</o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" type="info" icon="bilibili">Spread</o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" type="warning"><o-svg type="warn"></o-svg><span>Spread</span></o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" type="error"><span>Spread</span><o-svg type="error"></o-svg></o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" type="success"><span>Spread</span><o-svg type="ok"></o-svg></o-button>
+      </div>
+    </div>
+    <p>捏点新造型.</p>
+    <div class="clearfix">
+      <div class="item">
+        <o-button effect="spread" shape="circle" icon="bilibili"></o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" type="dashed" shape="circle" icon="pic"></o-button>
+      </div>
+      <div class="item">
+        <o-button effect="spread" shape="rectangle" type="info" icon="bilibili">Rectangle</o-button>
       </div>
     </div>
   </div>
