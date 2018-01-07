@@ -9,6 +9,7 @@ import Icon from '@/components/page/icon';
 import Component from '@/components/page/component';
 import Color from '@/components/page/components/color';
 import Button from '@/components/page/components/button';
+import Message from '@/components/page/components/message';
 import Stickies from '@/components/page/stickies';
 
 Vue.use(Router);
@@ -25,7 +26,8 @@ export default new Router({
     {path: '/component', component: Component, children: [
       {path: '', name: 'component', component: Color},
       {path: 'color', name: 'color', component: Color},
-      {path: 'button', name: 'button', component: Button}
+      {path: 'button', name: 'button', component: Button},
+      {path: 'message', name: 'message', component: Message}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies},
     {path: '/ui', name: 'ui', component: UI},

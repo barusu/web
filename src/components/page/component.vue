@@ -14,6 +14,16 @@
             <li class="oo-menu-item"> <router-link :to="{name: 'button'}">Button</router-link> </li>
           </ul>
         </p>
+        <input type="checkbox" id="ck_feedback" class="oo-ck">
+        <p class="oo-menu-group">
+          <label for="ck_feedback" class="oo-menu-group-title">
+            <div>Feedback</div>
+            <span class="oo-arrow"></span>
+          </label>
+          <ul class="oo-menu-item-list">
+            <li class="oo-menu-item"> <router-link :to="{name: 'message'}">Message</router-link> </li>
+          </ul>
+        </p>
         <p class="oo-menu-item"> <router-link :to="{name: 'ui'}">UI</router-link> </p>
       </div>
     </div>
