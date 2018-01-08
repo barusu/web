@@ -17,19 +17,19 @@
     <p>显示操作反馈信息.</p>
     <div class="clearfix">
       <div class="item">
-        <o-button effect="spread" type="primary">Spread</o-button>
+        <o-button effect="spread" type="primary" @click="showMessage('This is a normal message')">Primary</o-button>
       </div>
       <div class="item">
-        <o-button effect="spread" type="info" @click="showMessage">Spread</o-button>
+        <o-button effect="spread" type="info" @click="showInfoMessage('This is a info message')">Info</o-button>
       </div>
       <div class="item">
-        <o-button effect="spread" type="warning">Spread</o-button>
+        <o-button effect="spread" type="warning" @click="showWarnMessage('This is a warning message')">Warning</o-button>
       </div>
       <div class="item">
-        <o-button effect="spread" type="error">Spread</o-button>
+        <o-button effect="spread" type="error" @click="showErrorMessage('This is a error message')">Error</o-button>
       </div>
       <div class="item">
-        <o-button effect="spread" type="success">Spread</o-button>
+        <o-button effect="spread" type="success" @click="showSuccessMessage('This is a success message')">Success</o-button>
       </div>
     </div>
   </div>
@@ -41,8 +41,20 @@
       return {};
     },
     methods: {
-      showMessage() {
-        this.$msg("info");
+      showMessage(msg) {
+        this.$msg(msg);
+      },
+      showInfoMessage(msg) {
+        this.$msg.info(msg);
+      },
+      showWarnMessage(msg) {
+        this.$msg.warning(msg);
+      },
+      showSuccessMessage(msg) {
+        this.$msg.success(msg);
+      },
+      showErrorMessage(msg) {
+        this.$msg.error(msg);
       }
     }
   }
