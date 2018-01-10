@@ -1,6 +1,6 @@
 <template>
   <label class="input-wrapper" :class="type">
-    <span v-html="label" class="label" @click="click"></span>
+    <span v-if="label" v-html="label" class="label" @click="click"></span>
     <input type="text" v-model="field" :placeholder="placeholder" @blur="blur">
   </label>
 </template>
@@ -44,6 +44,7 @@
   .input-wrapper {
     width: 100%;
     font-size: .12rem;
+    line-height: 1;
     &.single {
       display: block;
       > span {
@@ -96,6 +97,9 @@
         line-height: 2.4;
         white-space: nowrap;
         vertical-align: middle;
+        + input {
+          border-radius: 0 4px 4px 0;
+        }
       }
       input {
         width: 100%;
@@ -104,7 +108,7 @@
         vertical-align: middle;
         background: #fff;
         border: 1px solid #bbb;
-        border-radius: 0 4px 4px 0;
+        border-radius: 4px;
         line-height: 2.5;
         &:hover {
           border-color: #999;
