@@ -11,6 +11,8 @@ import Color from '@/components/page/components/color';
 import Button from '@/components/page/components/button';
 import Message from '@/components/page/components/message';
 import Stickies from '@/components/page/stickies';
+import Entry from '@/components/page/entry';
+import Azurlane from '@/components/page/entry/azurlane';
 
 Vue.use(Router);
 
@@ -30,6 +32,10 @@ export default new Router({
       {path: 'message', name: 'message', component: Message}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies},
+    {path: '/entry', component: Entry, children: [
+      {path: '', name: 'entry', component: Color},
+      {path: 'azurlane', name: 'azurlane', component: Azurlane}
+    ]},
     {path: '/ui', name: 'ui', component: UI},
     {path: '/about', name: 'about', component: Component}
   ]
