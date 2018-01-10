@@ -32,6 +32,7 @@
           </label>
           <ul class="oo-menu-item-list">
             <li class="oo-menu-item"> <router-link :to="{name: 'input'}">Input</router-link> </li>
+            <li class="oo-menu-item"> <router-link :to="{name: 'select'}">Select</router-link> </li>
           </ul>
         </p>
       </div>

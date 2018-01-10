@@ -11,6 +11,7 @@ import Color from '@/components/page/components/color';
 import Button from '@/components/page/components/button';
 import Message from '@/components/page/components/message';
 import Input from '@/components/page/components/input';
+import Select from '@/components/page/components/select';
 import Stickies from '@/components/page/stickies';
 import Entry from '@/components/page/entry';
 import Azurlane from '@/components/page/entry/azurlane';
@@ -31,6 +32,7 @@ export default new Router({
       {path: 'color', name: 'color', component: Color},
       {path: 'button', name: 'button', component: Button},
       {path: 'message', name: 'message', component: Message},
+      {path: 'select', name: 'select', component: Select},
       {path: 'input', name: 'input', component: Input}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies},
