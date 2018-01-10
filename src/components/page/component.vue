@@ -31,7 +31,7 @@
             <span class="oo-arrow"></span>
           </label>
           <ul class="oo-menu-item-list">
-            <li class="oo-menu-item"> <router-link :to="{name: 'message'}">Message</router-link> </li>
+            <li class="oo-menu-item"> <router-link :to="{name: 'input'}">Input</router-link> </li>
           </ul>
         </p>
       </div>

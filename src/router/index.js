@@ -10,6 +10,7 @@ import Component from '@/components/page/component';
 import Color from '@/components/page/components/color';
 import Button from '@/components/page/components/button';
 import Message from '@/components/page/components/message';
+import Input from '@/components/page/components/input';
 import Stickies from '@/components/page/stickies';
 import Entry from '@/components/page/entry';
 import Azurlane from '@/components/page/entry/azurlane';
@@ -29,7 +30,8 @@ export default new Router({
       {path: '', name: 'component', component: Color},
       {path: 'color', name: 'color', component: Color},
       {path: 'button', name: 'button', component: Button},
-      {path: 'message', name: 'message', component: Message}
+      {path: 'message', name: 'message', component: Message},
+      {path: 'input', name: 'input', component: Input}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies},
     {path: '/entry', component: Entry, children: [
