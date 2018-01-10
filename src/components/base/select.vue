@@ -1,6 +1,6 @@
 <template>
   <div class="o-select" :class="type">
-    <span v-html="label"></span>
+    <span v-if="label" v-html="label"></span>
     <select class="select" v-model="field" :class="{'placeholder': !field}">
       <option value="" v-html="placeholder" disabled></option>
       <option :value="i.value" v-for="i in data" v-html="i.label">test</option>
@@ -51,19 +51,31 @@
       }
     }
     .select {
-      display: block;
-      width: 100%;
-      padding: 0 .2em;
-      border: 0;
-      font-size: .14rem;
-      line-height: 2;
-      height: .28rem;
-      color: #555;
-      background: transparent;
-      outline: none;
       &.placeholder {
-        color: #aaa;
+        color: #777;
         font-size: 12px;
+      }
+    }
+    &.base {
+      display: inline-table;
+      > * {
+        display: table-cell;
+      }
+      .select {
+        width: 100%;
+        height: 2.5em;
+        vertical-align: middle;
+        background: #fff;
+        border: 1px solid #bbb;
+        border-radius: 4px;
+        line-height: 2.5;
+        outline: none;
+        &:hover {
+          border-color: #999;
+        }
+        &:focus {
+          border-color: #09f;
+        }
       }
     }
   }
