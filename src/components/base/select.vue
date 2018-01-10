@@ -42,6 +42,18 @@
   .o-select {
     width: 100%;
     font-size: .12rem;
+    line-height: 1;
+    .select {
+      width: 100%;
+      outline: none;
+      vertical-align: middle;
+      height: 2em;
+      font-size: .14rem;
+      &.placeholder {
+        color: #777;
+        font-size: .14rem;
+      }
+    }
     &.single {
       display: block;
       border-bottom: 1px solid #ddd;
@@ -49,11 +61,10 @@
         display: block;
         line-height: 1.5;
       }
-    }
-    .select {
-      &.placeholder {
-        color: #777;
-        font-size: 12px;
+      .select {
+        width: 100%;
+        border: 0;
+        line-height: 2.4;
       }
     }
     &.base {
@@ -62,14 +73,10 @@
         display: table-cell;
       }
       .select {
-        width: 100%;
         height: 2.5em;
-        vertical-align: middle;
-        background: #fff;
         border: 1px solid #bbb;
         border-radius: 4px;
         line-height: 2.5;
-        outline: none;
         &:hover {
           border-color: #999;
         }

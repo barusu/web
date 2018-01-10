@@ -49,6 +49,7 @@
       display: block;
       > span {
         display: block;
+        line-height: 1.5;
       }
       input {
         display: block;
