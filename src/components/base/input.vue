@@ -104,7 +104,7 @@
       input {
         width: 100%;
         height: 2.5em;
-        padding: 0 1em;
+        padding: 0 .09rem;
         vertical-align: middle;
         background: #fff;
         border: 1px solid #bbb;
