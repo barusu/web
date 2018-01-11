@@ -5,6 +5,7 @@ import oRadioGroup from './radioGroup';
 import oSvg from './svg';
 import oSwitch from './switch';
 import oSelect from './select';
+import oCheckbox from './checkbox';
 
 const install = function(Vue) {
   Vue.prototype.$msg = message;
@@ -14,6 +15,7 @@ const install = function(Vue) {
   Vue.component('oSvg', oSvg);
   Vue.component('oSwitch', oSwitch);
   Vue.component('oSelect', oSelect);
+  Vue.component('oCheckbox', oCheckbox);
 };
 
 export default {
