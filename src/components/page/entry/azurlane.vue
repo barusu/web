@@ -68,7 +68,7 @@
         <o-input v-model="ship.airDef" label="防空" type="single"></o-input>
       </div>
       <div class="item">
-        <o-input v-model="ship.oil" label="油耗" type="single"></o-input>
+        <o-input v-model="ship.oil" label="油耗" type="single" readonly></o-input>
       </div>
       <div class="item">
         <o-input v-model="ship.speed" label="航速" type="single"></o-input>
@@ -135,6 +135,9 @@
 <script>
   import $ from '@/libs/ajax';
 
+  const rarityOil = {N: 0, R: 1, SR: 2, SSR: 3, UR: 4};
+  const typeOil = {DD: 1, CL: 2, CA: 3, BB: 6, BC: 5, CVL: 3, CV: 4, BBV: 6, AR: 2};
+
   function getEmptyShip() {
     return {
       no: '',
@@ -143,7 +146,7 @@
       camp: '',
       buildTime: '',
       rarity: '',
-      armor: '',
+      armor: 'LA',
       hp: '',
       fill: '',
       fire: '',
@@ -156,9 +159,9 @@
       luck: '',
       equip1: '',
       equip2: '',
-      equip3: '',
-      equip4: '',
-      equip5: '',
+      equip3: 'ADA',
+      equip4: 'EQ',
+      equip5: 'EQ',
       equipEffic1: '',
       equipEffic2: '',
       equipEffic3: '',
@@ -170,6 +173,7 @@
       skill: ''
     };
   }
+
   export default {
     data() {
       return {
@@ -220,11 +224,69 @@
           {value: 'BBG', label: '战列主炮'},
           {value: 'FP', label: '战斗机'},
           {value: 'BP', label: '轰炸机'},
-          {value: 'TP', label: '鱼雷机'}
+          {value: 'TP', label: '鱼雷机'},
+          {value: 'WS', label: '水侦'}
         ]
       };
     },
+    watch: {
+      'ship.type': function(value) {
+        switch(value) {
+        case 'DD':
+          this.ship.equip1 = 'DDG';
+          this.ship.equip2 = 'TD';
+          break;
+        case 'CL':
+          this.ship.equip1 = 'CLG';
+          this.ship.equip2 = 'TD';
+          break;
+        case 'CA':
+          this.ship.equip1 = 'CAG';
+          this.ship.equip2 = 'TD';
+          break;
+        case 'BB':
+          this.ship.equip1 = 'BBG';
+          this.ship.equip2 = 'CLG';
+          break;
+        case 'BC':
+          this.ship.equip1 = 'BBG';
+          this.ship.equip2 = 'DDG';
+          break;
+        case 'CVL':
+          this.ship.equip1 = '';
+          this.ship.equip2 = '';
+          break;
+        case 'CV':
+          this.ship.equip1 = 'FP';
+          this.ship.equip2 = 'BP';
+          this.ship.equip3 = 'TP';
+          break;
+        case 'BBV':
+          this.ship.equip1 = 'BBG';
+          this.ship.equip2 = 'WS';
+          break;
+        case 'AR':
+          this.ship.equip1 = 'EQ';
+          this.ship.equip2 = 'ADA';
+          break;
+        default:
+        }
+        this.updateOil();
+      },
+      'ship.status': function(value) {
+        if(value === 'FR') this.ship.oilCorrection = -1;
+        this.updateOil();
+      },
+      'ship.rarity': 'updateOil',
+      'ship.oilCorrection': 'updateOil'
+    },
     methods: {
+      updateOil() {
+        if(this.ship.rarity && typeOil[this.ship.type]) {
+          this.ship.oil = rarityOil[this.ship.rarity] + typeOil[this.ship.type] + 6;
+          if(this.ship.oilCorrection) this.ship.oil += parseInt(this.ship.oilCorrection);
+        }
+      },
       save() {
         $.post('resource/azurlane/add', this.ship, data => {
           if(data == '1') {
