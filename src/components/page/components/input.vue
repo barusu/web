@@ -5,10 +5,7 @@
       padding: 0;
       margin: 0 .05rem .1rem;
       font-size: .14rem;
-      line-height: 2.5;
-      border-radius: 4px;
       color: #333;
-      border: 1px solid transparent;
     }
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <label class="input-wrapper" :class="type">
     <span v-if="label" v-html="label" class="label" @click="click"></span>
-    <input type="text" v-model="field" :placeholder="placeholder" @blur="blur">
+    <input type="text" v-model="field" :placeholder="placeholder" @blur="blur" :readonly="readOnly">
   </label>
 </template>
 
@@ -17,7 +17,8 @@
       type: {
         type: String,
         default: 'base'
-      }
+      },
+      readonly: null
     },
     methods: {
       click() {
@@ -28,6 +29,10 @@
       }
     },
     computed: {
+      readOnly() {
+        // eslint-disable-next-line
+        return this.readonly !== undefined;
+      },
       field: {
         set(v) {
           this.$emit('input', v);
@@ -61,6 +66,9 @@
         color: #555;
         background: transparent;
         transition: all .34s;
+        &:hover {
+          border-color: #999;
+        }
         &:focus {
           border-color: #50bfff;
           color: #333;
@@ -105,7 +113,7 @@
       input {
         width: 100%;
         height: 2.5em;
-        padding: 0 .09rem;
+        padding: 0 .1rem;
         vertical-align: middle;
         background: #fff;
         border: 1px solid #bbb;
@@ -115,7 +123,7 @@
           border-color: #999;
         }
         &:focus {
-          border-color: #09f;
+          border-color: #50bfff;
         }
       }
     }
