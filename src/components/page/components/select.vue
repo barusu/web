@@ -5,10 +5,7 @@
       padding: 0;
       margin: 0 .05rem .1rem;
       font-size: .14rem;
-      line-height: 2.5;
-      border-radius: 4px;
       color: #333;
-      border: 1px solid transparent;
     }
   }
 </style>
@@ -23,6 +20,18 @@
       </div>
       <div class="item">
         <o-select v-model="t" :data="data" placeholder="基本"></o-select>
+      </div>
+      <div class="item">
+        <o-input v-model="t" label="带文字"></o-input>
+      </div>
+      <div class="item">
+        <o-select v-model="t" :data="data" placeholder="基本"  label="带文字"></o-select>
+      </div>
+      <div class="item">
+        <o-input v-model="t" type="single" label="单线条型"></o-input>
+      </div>
+      <div class="item">
+        <o-select v-model="t" type="single" :data="data" placeholder="基本"  label="单线条型"></o-select>
       </div>
     </div>
   </div>
