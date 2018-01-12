@@ -7,12 +7,14 @@ import Index from '@/components/page/index';
 import EditView from '@/components/page/editView';
 import Icon from '@/components/page/icon';
 import Component from '@/components/page/component';
+import CIndex from '@/components/page/components/index';
 import Color from '@/components/page/components/color';
 import Button from '@/components/page/components/button';
 import Message from '@/components/page/components/message';
 import Input from '@/components/page/components/input';
 import Select from '@/components/page/components/select';
 import Checkbox from '@/components/page/components/checkbox';
+import Text from '@/components/page/components/text';
 import Stickies from '@/components/page/stickies';
 import Entry from '@/components/page/entry';
 import Azurlane from '@/components/page/entry/azurlane';
@@ -29,13 +31,14 @@ export default new Router({
     {path: '/editview/:id', name: 'editview', component: EditView, meta: {requiresAuth: true}},
     {path: '/unboxing', name: 'unboxing', component: Unboxing, meta: {requiresAuth: true}},
     {path: '/component', component: Component, children: [
-      {path: '', name: 'component', component: Color},
+      {path: '', name: 'component', component: CIndex},
       {path: 'color', name: 'color', component: Color},
       {path: 'button', name: 'button', component: Button},
       {path: 'message', name: 'message', component: Message},
       {path: 'select', name: 'select', component: Select},
       {path: 'input', name: 'input', component: Input},
-      {path: 'checkbox', name: 'checkbox', component: Checkbox}
+      {path: 'checkbox', name: 'checkbox', component: Checkbox},
+      {path: 'text', name: 'text', component: Text}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies},
     {path: '/entry', component: Entry, children: [
