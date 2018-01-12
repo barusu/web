@@ -64,6 +64,9 @@
           height: 5px;
           transform: translate3D(0,-60%,0) rotate(-45deg);
         }
+        &::before {
+          box-shadow: 0 0 0 6px;
+        }
       }
     }
     .checkbox-wrapper {
@@ -97,7 +100,7 @@
         bottom: -1px; right: -1px;
         border-radius: inherit;
         opacity: 0;
-        box-shadow: 0 0 0 6px;
+        box-shadow: 0 0 0 0;
         color: #50bfff;
         transition: all .4s linear;
         z-index: -1;
@@ -122,7 +125,7 @@
     &:active {
       .checkbox-wrapper::before {
         transition: all 1ms linear;
-        box-shadow: 0 0 0 0;
+        box-shadow: 0 0 0 0 !important;
         opacity: 0.618;
       }
     }
