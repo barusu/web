@@ -6,6 +6,7 @@ import oSvg from './svg';
 import oSwitch from './switch';
 import oSelect from './select';
 import oCheckbox from './checkbox';
+import oText from './text';
 
 const install = function(Vue) {
   Vue.prototype.$msg = message;
@@ -16,6 +17,7 @@ const install = function(Vue) {
   Vue.component('oSwitch', oSwitch);
   Vue.component('oSelect', oSelect);
   Vue.component('oCheckbox', oCheckbox);
+  Vue.component('oText', oText);
 };
 
 export default {
