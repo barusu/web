@@ -1,14 +1,18 @@
 <template>
-  <span class="o-text" :class="{'tooltip': title, 'hidden': Hidden}" :data-title="title"><slot></slot></span>
+  <span class="o-text" :class="{'tooltip': title, 'hidden': Hidden, 'transparent': Transparent}" :data-title="title"><slot></slot></span>
 </template>
 
 <script>
   export default {
-    props: ['title', 'hidden'],
+    props: ['title', 'hidden', 'transparent'],
     computed: {
       Hidden() {
         // eslint-disable-next-line
         return this.hidden !== undefined;
+      },
+      Transparent() {
+        // eslint-disable-next-line
+        return this.transparent !== undefined;
       }
     }
   };
@@ -23,6 +27,17 @@
       &::selection {
         background: #000;
         color: #fff;
+        &::after {
+          content: ''
+        }
+      }
+    }
+    &.transparent {
+      background: transparent;
+      color: transparent;
+      &::selection {
+        background: transparent;
+        color: transparent;
         &::after {
           content: ''
         }
