@@ -26,7 +26,7 @@
       color: #000;
       &::selection {
         background: #000;
-        color: #fff;
+        color: #000;
         &::after {
           content: ''
         }
