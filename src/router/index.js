@@ -15,6 +15,7 @@ import Input from '@/components/page/components/input';
 import Select from '@/components/page/components/select';
 import Checkbox from '@/components/page/components/checkbox';
 import Text from '@/components/page/components/text';
+import Layout from '@/components/page/components/layout';
 import Stickies from '@/components/page/stickies';
 import Entry from '@/components/page/entry';
 import Azurlane from '@/components/page/entry/azurlane';
@@ -38,7 +39,8 @@ export default new Router({
       {path: 'select', name: 'select', component: Select},
       {path: 'input', name: 'input', component: Input},
       {path: 'checkbox', name: 'checkbox', component: Checkbox},
-      {path: 'text', name: 'text', component: Text}
+      {path: 'text', name: 'text', component: Text},
+      {path: 'layout', name: 'layout', component: Layout}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies},
     {path: '/entry', component: Entry, children: [

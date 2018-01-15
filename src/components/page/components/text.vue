@@ -20,8 +20,8 @@
     <p><o-text>Not sure if you know this</o-text></p>
     <p><o-text>But when we first met</o-text></p>
     <p><o-text hidden>I got so nervous I couldn't speak</o-text></p>
-    <p><o-text transparent>In that very moment</o-text></p>
-    <p><o-text>I found the one and</o-text></p>
+    <p><o-text transparent title="你知道的太多了">In that very moment</o-text></p>
+    <p><o-text conceal>I found the one and</o-text></p>
     <p><o-text>My life had found this missing piece</o-text></p>
     <p><o-text>So as long as I live I love you</o-text></p>
     <p><o-text>Will have and hold you</o-text></p>

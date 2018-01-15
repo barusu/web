@@ -37,6 +37,16 @@
             <li class="oo-menu-item"> <router-link :to="{name: 'checkbox'}">Checkbox</router-link> </li>
           </ul>
         </p>
+        <input type="checkbox" id="ck_project" class="oo-ck">
+        <p class="oo-menu-group">
+          <label for="ck_project" class="oo-menu-group-title">
+            <div>Project</div>
+            <span class="oo-arrow"></span>
+          </label>
+          <ul class="oo-menu-item-list">
+            <li class="oo-menu-item"> <router-link :to="{name: 'layout'}">Layout</router-link> </li>
+          </ul>
+        </p>
       </div>
     </div>
     <router-view class="content"></router-view>
