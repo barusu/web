@@ -1,10 +1,10 @@
 <template>
-  <span class="o-text" :class="{'tooltip': title, 'hidden': Hidden, 'transparent': Transparent, 'conceal': Conceal}" :data-title="title"><slot></slot></span>
+  <span class="o-text" :class="[type, {'tooltip': title, 'hidden': Hidden, 'transparent': Transparent, 'conceal': Conceal}]" :data-title="title"><slot></slot></span>
 </template>
 
 <script>
   export default {
-    props: ['title', 'hidden', 'transparent', 'conceal'],
+    props: ['title', 'hidden', 'transparent', 'conceal', 'type'],
     computed: {
       Hidden() {
         // eslint-disable-next-line
@@ -25,7 +25,18 @@
 <style lang="scss">
   .o-text {
     position: relative;
+    &.key {
+      color: #f56c6c;
+    }
+    &.tag {
+      color: #eb7ce3;
+    }
+    &.title {
+      color: #409eff;
+      font-size: 120%;
+    }
     &.tooltip {
+      cursor: default;
       &::after {
         content: attr(data-title);
         position: absolute;
