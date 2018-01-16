@@ -108,7 +108,7 @@
         line-height: 1.5;
         color: #678;
         font-size: .14rem;
-        margin-bottom: 1em;
+        margin-bottom: .5em;
         &.tip {
           display: inline-block;
           margin: 0;
