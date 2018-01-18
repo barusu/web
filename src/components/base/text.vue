@@ -37,10 +37,6 @@
     }
     &.time {
       color: #fc605d;
-      margin-right: .5em;
-      &::after {
-        content: ':';
-      }
     }
     &.tooltip {
       cursor: default;
