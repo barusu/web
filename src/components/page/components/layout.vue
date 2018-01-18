@@ -5,7 +5,7 @@
 
 <template>
   <div class="layout">
-    <h2><span>Color</span> <span class="chinese">自定义布局</span></h2>
+    <h2><span>Layout</span> <span class="chinese">自定义布局</span></h2>
     <p>提供用户自定义页面布局.</p>
     <h3><span>Use</span></h3>
     <p>此类组件需使用iframe形式来嵌入页面内.</p>
@@ -20,7 +20,7 @@
     <p>页面内非iframe组件区域右键选择编辑进入编辑界面,点击需要删除的图表右上角的红色叉叉.<o-text type="key">此操作不可逆,恢复需重新添加</o-text></p>
     <iframe src="/static/index.html#index?id=02" frameborder="0" width="100%" :height="height" ref="iframe"></iframe>
     <h3><span>Update</span></h3>
-    <p></p>
+    <p><o-text type="time">2017-01-17</o-text>添加边距控制开关,新增无边距模式;调整编辑栏样式;<o-text type="key">编辑功能在独立出去后会丢失ID,暂不可用; 删除功能未实装,删除只是从页面上删除了.</o-text></p>
   </div>
 </template>
 
