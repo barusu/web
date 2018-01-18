@@ -13,6 +13,7 @@
             <li class="oo-menu-item"> <router-link :to="{name: 'color'}">Color</router-link> </li>
             <li class="oo-menu-item"> <router-link :to="{name: 'text'}">Text</router-link> </li>
             <li class="oo-menu-item"> <router-link :to="{name: 'button'}">Button</router-link> </li>
+            <li class="oo-menu-item"> <router-link :to="{name: 'list'}">List</router-link> </li>
           </ul>
         </p>
         <input type="checkbox" id="ck_feedback" class="oo-ck">
