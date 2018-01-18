@@ -1,5 +1,32 @@
 <style lang="scss">
   .layout {
+    .log {
+      position: relative;
+      padding-left: 6em;
+      margin-bottom: .5em;
+      font-size: 12px;
+      .date {
+        position: absolute;
+        left: 0;
+      }
+      p {
+        font-size: 12px;
+        margin: 0;
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 5px;
+          height: 5px;
+          background: #777;
+          transform: rotate(45deg);
+          vertical-align: middle;
+          margin-right: 5px;
+          margin-top: -3px;
+          border: 2px solid #777;
+          border-color: #111 #444 #666 #999;
+        }
+      }
+    }
   }
 </style>
 
@@ -10,6 +37,8 @@
     <h3><span>Use</span></h3>
     <p>此类组件需使用iframe形式来嵌入页面内.</p>
     <p>&lt;<o-text type="tag">iframe</o-text> src="/static/index.html#index?id=<o-text type="key" title="用户ID之类的唯一标识">Identification</o-text>" frameborder="0" width="100%" <o-text type="key" title="自适应高度需在调用页做额外处理">height="500"</o-text>&gt;&lt;/<o-text type="tag">iframe</o-text>&gt;</p>
+    <p><o-text type="title">Host</o-text></p>
+    <p>如需修改host去index.html中的&lt;head/&gt;中找到host变量替换即可.</p>
     <p><o-text type="title">调整</o-text></p>
     <p>页面内非iframe组件区域右键选择编辑进入编辑界面,在图表边缘按下鼠标可拖动调整位置,调整大小需使用右下角的缩放手柄.</p>
     <p><o-text type="title">添加</o-text></p>
@@ -20,7 +49,18 @@
     <p>页面内非iframe组件区域右键选择编辑进入编辑界面,点击需要删除的图表右上角的红色叉叉.<o-text type="key">此操作不可逆,恢复需重新添加</o-text></p>
     <iframe src="/static/index.html#index?id=02" frameborder="0" width="100%" :height="height" ref="iframe"></iframe>
     <h3><span>Update</span></h3>
-    <p><o-text type="time">2017-01-17</o-text>添加边距控制开关,新增无边距模式;调整编辑栏样式;<o-text type="key">编辑功能在独立出去后会丢失ID,暂不可用; 删除功能未实装,删除只是从页面上删除了.</o-text></p>
+    <div class="log">
+      <o-text type="time" class="date">2017-01-18</o-text>
+      <p>修正切换边框类型后内部高度没有重新计算</p>
+      <p>修正编辑时切换边框类型内部组件自适应的基准为旧值</p>
+    </div>
+    <div class="log">
+      <o-text type="time" class="date">2017-01-17</o-text>
+      <p>添加边距控制开关,新增无边距模式</p>
+      <p>调整编辑栏样式</p>
+      <p><o-text type="key">编辑功能在独立出去后会丢失ID,暂不可用</o-text></p>
+      <p><o-text type="key">删除功能未实装,删除只是从页面上删除了</o-text></p>
+    </div>
   </div>
 </template>
 
