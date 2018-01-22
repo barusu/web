@@ -59,10 +59,17 @@
 <script>
   const log = [
     {
+      date: '2017-01-22',
+      log: [
+        {text: '实装删除功能', status: 'forgive'},
+        {text: '修正编辑时ID丢失导致编辑内容“消失”', status: 'forgive'},
+        {text: '添加列表显示模式切换', status: 'forgive'}
+      ]
+    }, {
       date: '2017-01-18',
       log: [
         {text: '修正切换边框类型后内部高度没有重新计算', status: 'forgive'},
-        {text: '修正编辑时切换边框类型内部组件自适应的基准为旧值', status: 'forgive'},
+        {text: '修正编辑时切换边框类型内部组件自适应的基准为旧值', status: 'forgive'}
       ]
     }, {
       date: '2017-01-17', log: [
