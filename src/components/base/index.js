@@ -7,6 +7,7 @@ import oSwitch from './switch';
 import oSelect from './select';
 import oCheckbox from './checkbox';
 import oText from './text';
+import oList from './list';
 
 const install = function(Vue) {
   Vue.prototype.$msg = message;
@@ -18,6 +19,7 @@ const install = function(Vue) {
   Vue.component('oSelect', oSelect);
   Vue.component('oCheckbox', oCheckbox);
   Vue.component('oText', oText);
+  Vue.component('oList', oList);
 };
 
 export default {
