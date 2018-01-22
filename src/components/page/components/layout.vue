@@ -7,7 +7,7 @@
       font-size: 12px;
       .date {
         position: absolute;
-        left: 0;
+        left: 0; top: 3px;
       }
       p {
         font-size: 12px;
@@ -49,26 +49,36 @@
     <p>页面内非iframe组件区域右键选择编辑进入编辑界面,点击需要删除的图表右上角的红色叉叉.<o-text type="key">此操作不可逆,恢复需重新添加</o-text></p>
     <iframe src="/static/index.html#index?id=02" frameborder="0" width="100%" :height="height" ref="iframe"></iframe>
     <h3><span>Update</span></h3>
-    <div class="log">
-      <o-text type="time" class="date">2017-01-18</o-text>
-      <p>修正切换边框类型后内部高度没有重新计算</p>
-      <p>修正编辑时切换边框类型内部组件自适应的基准为旧值</p>
-    </div>
-    <div class="log">
-      <o-text type="time" class="date">2017-01-17</o-text>
-      <p>添加边距控制开关,新增无边距模式</p>
-      <p>调整编辑栏样式</p>
-      <p><o-text type="key">编辑功能在独立出去后会丢失ID,暂不可用</o-text></p>
-      <p><o-text type="key">删除功能未实装,删除只是从页面上删除了</o-text></p>
+    <div class="log" v-for="l in log">
+      <o-text type="time" class="date">{{l.date}}</o-text>
+      <o-list class="diamond" :list="l.log"></o-list>
     </div>
   </div>
 </template>
 
 <script>
+  const log = [
+    {
+      date: '2017-01-18',
+      log: [
+        {text: '修正切换边框类型后内部高度没有重新计算', status: 'forgive'},
+        {text: '修正编辑时切换边框类型内部组件自适应的基准为旧值', status: 'forgive'},
+      ]
+    }, {
+      date: '2017-01-17', log: [
+        {text: '添加边距控制开关,新增无边距模式', status: 'forgive'},
+        {text: '调整编辑栏样式', status: 'forgive'},
+        {text: '编辑功能在独立出去后会丢失ID,暂不可用', status: 'error'},
+        {text: '删除功能未实装,删除只是从页面上删除了', status: 'error'}
+      ]
+    }
+  ];
+
   export default {
     data() {
       return {
-        height: 500
+        height: 500,
+        log: log
       };
     },
     methods: {
