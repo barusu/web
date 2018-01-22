@@ -32,12 +32,14 @@
         border-color: #111 #444 #666 #999;
       }
       &.error {
+        color: $errorColor;
         &::before {
           background: $errorColor;
           border-color: darken($errorColor, 20%) darken($errorColor, 10%) lighten($errorColor, 10%) lighten($errorColor, 20%);
         }
       }
       &.forgive {
+        color: darken($forgiveColor, 8%);
         &::before {
           background: $forgiveColor;
           border-color: darken($forgiveColor, 15%) darken($forgiveColor, 8%) lighten($forgiveColor, 10%) lighten($forgiveColor, 20%);
