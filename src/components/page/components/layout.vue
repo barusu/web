@@ -45,6 +45,9 @@
     <p>提供用户自定义页面布局.</p>
     <h3><span>Download</span></h3>
     <p><a href="https://github.com/barusu/web/tree/master/static/layout" target="blank"><o-svg type="github"></o-svg>GayHub</a></p>
+    <h3><span>Tip</span></h3>
+    <p>由于删除了登录系统这边的访问控制由接口来完成.</p>
+    <p><o-text title="┑(￣Д ￣)┍ 按照以往的尿性这个控制以后也是不会有的">目前的后台接口直接用ID就可以访问/修改特定用户/组的数据,后期与项目整合时应该在接口上加上权限控制.</o-text></p>
     <h3><span>Use</span></h3>
     <p>此类组件需使用iframe形式来嵌入页面内.</p>
     <p>&lt;<o-text type="tag">iframe</o-text> src="/static/index.html#index?id=<o-text type="key" title="用户ID之类的唯一标识">Identification</o-text>" frameborder="0" width="100%" <o-text type="key" title="自适应高度需在调用页做额外处理">height="500"</o-text>&gt;&lt;/<o-text type="tag">iframe</o-text>&gt;</p>
@@ -70,6 +73,13 @@
 <script>
   const log = [
     {
+      date: '2017-01-23',
+      log: [
+        {text: '编辑页添加小屏的支持(最小到宽度720px)', status: 'forgive'},
+        {text: '编辑页添加返回按钮(仍可以使用浏览器自带的返回)', status: 'forgive'},
+        {text: '删除Title属性(接口忘了让给加了,而且反正也没用就直接删掉吧)', status: 'forgive'}
+      ]
+    }, {
       date: '2017-01-22',
       log: [
         {text: '实装删除功能', status: 'forgive'},
