@@ -1,5 +1,14 @@
 <style lang="scss">
   .layout {
+    p {
+      svg {
+        height: 1.5em;
+        vertical-align: sub;
+      }
+      a {
+        color: inherit;
+      }
+    }
     .log {
       position: relative;
       padding-left: 6em;
@@ -34,6 +43,8 @@
   <div class="layout">
     <h2><span>Layout</span> <span class="chinese">自定义布局</span></h2>
     <p>提供用户自定义页面布局.</p>
+    <h3><span>Download</span></h3>
+    <p><a href="https://github.com/barusu/web/tree/master/static/layout" target="blank"><o-svg type="github"></o-svg>GayHub</a></p>
     <h3><span>Use</span></h3>
     <p>此类组件需使用iframe形式来嵌入页面内.</p>
     <p>&lt;<o-text type="tag">iframe</o-text> src="/static/index.html#index?id=<o-text type="key" title="用户ID之类的唯一标识">Identification</o-text>" frameborder="0" width="100%" <o-text type="key" title="自适应高度需在调用页做额外处理">height="500"</o-text>&gt;&lt;/<o-text type="tag">iframe</o-text>&gt;</p>
