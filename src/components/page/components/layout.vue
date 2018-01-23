@@ -47,7 +47,7 @@
     <p>页面内非iframe组件区域右键选择编辑进入编辑界面,双击需要编辑的图表进入编辑界面.<o-text type="key">修改了位置需先保存,编辑操作会丢弃之前的位置修改记录</o-text></p>
     <p><o-text type="title">删除</o-text></p>
     <p>页面内非iframe组件区域右键选择编辑进入编辑界面,点击需要删除的图表右上角的红色叉叉.<o-text type="key">此操作不可逆,恢复需重新添加</o-text></p>
-    <iframe src="/static/index.html#index?id=02" frameborder="0" width="100%" :height="height" ref="iframe"></iframe>
+    <iframe src="/static/layout/index.html#index?id=02" frameborder="0" width="100%" :height="height" ref="iframe"></iframe>
     <h3><span>Update</span></h3>
     <div class="log" v-for="l in log">
       <o-text type="time" class="date">{{l.date}}</o-text>
