@@ -73,6 +73,11 @@
 <script>
   const log = [
     {
+      date: '2017-01-24',
+      log: [
+        {text: '组件如使用base64的图片在编辑时浏览器会陷入卡死状态(应该是长度超过一定的程度导致的,具体原因未找到)', status: 'error'}
+      ]
+    }, {
       date: '2017-01-23',
       log: [
         {text: '编辑页添加小屏的支持(最小到宽度720px)', status: 'forgive'},
