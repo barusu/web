@@ -69,7 +69,7 @@
     </div>
     <span class="title">Rebels Against The God</span>
     <nav>
-      <router-link :to="{name: 'icon'}">Icons</router-link>
+      <router-link :to="{name: 'album'}">Album</router-link>
       <router-link :to="{name: 'ui'}">UI</router-link>
       <router-link :to="{name: 'component'}">Component</router-link>
       <router-link :to="{name: 'stickies'}">Stickies</router-link>
