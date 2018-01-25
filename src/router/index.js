@@ -21,6 +21,9 @@ import Stickies from '@/components/page/stickies';
 import Entry from '@/components/page/entry';
 import Azurlane from '@/components/page/entry/azurlane';
 import Bill from '@/components/page/entry/bill';
+import Album from '@/components/page/album';
+import Aindex from '@/components/page/album/index';
+import Tabikaeru from '@/components/page/album/tabikaeru';
 
 Vue.use(Router);
 
@@ -29,12 +32,12 @@ export default new Router({
   routes: [
     {path: '/', name: 'index', component: Index, meta: {requiresAuth: true}},
     {path: '/login', name: 'login', component: Login},
-    {path: '/icon', name: 'icon', component: Icon},
     {path: '/addview', name: 'addview', component: EditView, meta: {requiresAuth: true}},
     {path: '/editview/:id', name: 'editview', component: EditView, meta: {requiresAuth: true}},
     {path: '/unboxing', name: 'unboxing', component: Unboxing, meta: {requiresAuth: true}},
     {path: '/component', component: Component, children: [
       {path: '', name: 'component', component: CIndex},
+      {path: 'icon', name: 'icon', component: Icon},
       {path: 'color', name: 'color', component: Color},
       {path: 'button', name: 'button', component: Button},
       {path: 'message', name: 'message', component: Message},
@@ -50,6 +53,10 @@ export default new Router({
       {path: '', name: 'entry', component: Color},
       {path: 'azurlane', name: 'azurlane', component: Azurlane},
       {path: 'bill', name: 'bill', component: Bill}
+    ]},
+    {path: '/album', component: Album, children: [
+      {path: '', name: 'album', component: Aindex},
+      {path: 'tabikaeru', name: 'tabikaeru', component: Tabikaeru}
     ]},
     {path: '/ui', name: 'ui', component: UI},
     {path: '/about', name: 'about', component: Component}
