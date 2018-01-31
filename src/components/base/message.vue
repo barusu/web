@@ -88,6 +88,7 @@
     transition: all .34s;
     > div {
       margin: auto;
+      text-align: center;
     }
     .o-message-content {
       padding: 10px 16px;
