@@ -13,11 +13,6 @@
     <div class="">
       <o-upload prefix="xx"></o-upload>
     </div>
-    <p><o-button type="info" @click="upload">上传</o-button></p>
-    <div class="upload-wrapper" @drop="drop" @dragover="dragover">
-      <input type="file" name="file" accept="image/*">
-    </div>
-    <img :src="i" v-for="i in imgs" alt="">
   </div>
 </template>
 
