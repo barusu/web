@@ -36,6 +36,7 @@
             <li class="oo-menu-item"> <router-link :to="{name: 'input'}">Input</router-link> </li>
             <li class="oo-menu-item"> <router-link :to="{name: 'select'}">Select</router-link> </li>
             <li class="oo-menu-item"> <router-link :to="{name: 'checkbox'}">Checkbox</router-link> </li>
+            <li class="oo-menu-item"> <router-link :to="{name: 'upload'}">Upload</router-link> </li>
           </ul>
         </p>
         <input type="checkbox" id="ck_project" class="oo-ck">

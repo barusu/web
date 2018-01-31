@@ -16,6 +16,7 @@ import Select from '@/components/page/components/select';
 import Checkbox from '@/components/page/components/checkbox';
 import Text from '@/components/page/components/text';
 import List from '@/components/page/components/list';
+import Upload from '@/components/page/components/upload';
 import Layout from '@/components/page/components/layout';
 import Stickies from '@/components/page/stickies';
 import Entry from '@/components/page/entry';
@@ -46,7 +47,8 @@ export default new Router({
       {path: 'checkbox', name: 'checkbox', component: Checkbox},
       {path: 'text', name: 'text', component: Text},
       {path: 'layout', name: 'layout', component: Layout},
-      {path: 'list', name: 'list', component: List}
+      {path: 'list', name: 'list', component: List},
+      {path: 'upload', name: 'upload', component: Upload}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies},
     {path: '/entry', component: Entry, children: [
