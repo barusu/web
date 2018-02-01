@@ -52,6 +52,7 @@
 <template>
   <ul class="o-list">
     <li v-for="(l, i) in list" v-html="l.text || l" :class="[l.type || type, l.status || status]"></li>
+    <li v-if="list.length === 0">No Data</li>
   </ul>
 </template>
 
