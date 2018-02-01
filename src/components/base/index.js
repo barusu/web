@@ -9,10 +9,12 @@ import oCheckbox from './checkbox';
 import oText from './text';
 import oList from './list';
 import oUpload from './upload';
+import oTextarea from './textarea';
 
 const install = function(Vue) {
   Vue.prototype.$msg = message;
   Vue.component('oInput', oInput);
+  Vue.component('oTextarea', oTextarea);
   Vue.component('oButton', oButton);
   Vue.component('oRadioGroup', oRadioGroup);
   Vue.component('oSvg', oSvg);
