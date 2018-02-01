@@ -22,9 +22,11 @@ import Stickies from '@/components/page/stickies';
 import Entry from '@/components/page/entry';
 import Azurlane from '@/components/page/entry/azurlane';
 import Bill from '@/components/page/entry/bill';
+import Backlog from '@/components/page/entry/backlog';
 import Album from '@/components/page/album';
 import Aindex from '@/components/page/album/index';
 import Tabikaeru from '@/components/page/album/tabikaeru';
+import About from '@/components/page/about';
 
 Vue.use(Router);
 
@@ -54,13 +56,14 @@ export default new Router({
     {path: '/entry', component: Entry, children: [
       {path: '', name: 'entry', component: Color},
       {path: 'azurlane', name: 'azurlane', component: Azurlane},
-      {path: 'bill', name: 'bill', component: Bill}
+      {path: 'bill', name: 'bill', component: Bill},
+      {path: 'backlog', name: 'backlog', component: Backlog}
     ]},
     {path: '/album', component: Album, children: [
       {path: '', name: 'album', component: Aindex},
       {path: 'tabikaeru', name: 'tabikaeru', component: Tabikaeru}
     ]},
     {path: '/ui', name: 'ui', component: UI},
-    {path: '/about', name: 'about', component: Component}
+    {path: '/about', name: 'about', component: About}
   ]
 });
