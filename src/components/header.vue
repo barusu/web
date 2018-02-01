@@ -74,7 +74,7 @@
       <router-link :to="{name: 'component'}">Component</router-link>
       <router-link :to="{name: 'stickies'}">Stickies</router-link>
       <router-link :to="{name: 'entry'}">Entry</router-link>
-      <router-link :to="{name: 'unboxing'}">About</router-link>
+      <router-link :to="{name: 'about'}">About</router-link>
     </nav>
   </header>
 </template>
