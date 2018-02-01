@@ -12,6 +12,7 @@
           <ul class="oo-menu-item-list">
             <li class="oo-menu-item"> <router-link :to="{name: 'azurlane'}">Azurlane</router-link> </li>
             <li class="oo-menu-item"> <router-link :to="{name: 'bill'}">Bill</router-link> </li>
+            <li class="oo-menu-item"> <router-link :to="{name: 'backlog'}">Backlog</router-link> </li>
           </ul>
         </p>
       </div>
