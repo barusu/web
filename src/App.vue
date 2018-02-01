@@ -177,6 +177,12 @@
     transition: height .34s ease-in-out, margin .34s linear;
     color: #444;
     transition: all .34s;
+    .key {
+      // color: #999;
+      padding-left: 1em;
+      font-size: 12px;
+      opacity: .5;
+    }
     &:hover {
       color: #50bfff;
     }
