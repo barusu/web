@@ -25,6 +25,14 @@
 <style lang="scss">
   .o-text {
     position: relative;
+    &.code {
+      margin: 0 1px;
+      background: #f2f4f5;
+      padding: .2em .4em;
+      border-radius: 3px;
+      font-size: 12px;
+      border: 1px solid #eee;
+    }
     &.key {
       color: #f56c6c;
     }
