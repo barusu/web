@@ -18,13 +18,13 @@
     <p><o-text title="その体は、きっと剣で出来ていた">So as I pray, Unlimited Blade Works.</o-text></p>
     <h3><span>Color</span></h3>
     <p><o-text>Not sure if you know this</o-text></p>
-    <p><o-text>But when we first met</o-text></p>
-    <p><o-text hidden>I got so nervous I couldn't speak</o-text></p>
-    <p><o-text transparent title="你知道的太多了">In that very moment</o-text></p>
-    <p><o-text conceal>I found the one and</o-text></p>
-    <p><o-text>My life had found this missing piece</o-text></p>
-    <p><o-text>So as long as I live I love you</o-text></p>
-    <p><o-text>Will have and hold you</o-text></p>
+    <p><o-text hidden>But when we first met</o-text></p>
+    <p><o-text transparent title="你知道的太多了">I got so nervous I couldn't speak</o-text></p>
+    <p><o-text conceal>In that very moment</o-text></p>
+    <p><o-text type="title">I found the one and</o-text></p>
+    <p><o-text type="tag">My life had found this missing piece</o-text></p>
+    <p><o-text type="code">So as long as I live I love you</o-text></p>
+    <p><o-text type="time">Will have and hold you</o-text></p>
     <p><o-text>You look so beautiful in white</o-text></p>
     <p><o-text>And from now to my very last breathe</o-text></p>
     <p><o-text>This day I'll cherish</o-text></p>
@@ -74,6 +74,7 @@
     data() {
       return {
         doc: [
+          {property: 'type', description: 'title/tag/time: 情景色 code: 特殊样式', type: 'String', default: ''},
           {property: 'title', description: '添加额外的提示信息,会在鼠标移到文字上时显示', type: 'String', default: ''},
           {property: 'transparent', description: '透明文字,可复制但不可见', type: '存在即启用', default: ''},
           {property: 'hidden', description: '涂黑的文字,可复制但不可直接阅读', type: '存在即启用', default: ''},
