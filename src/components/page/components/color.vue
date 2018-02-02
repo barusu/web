@@ -22,6 +22,7 @@
   <div class="color">
     <h2><span>Color</span> <span class="chinese">配色</span></h2>
     <p>我喜欢的一些配色.</p>
+    <p class="tip">点击色块即可复制16进制颜色数值.</p>
     <h3><span>Base</span></h3>
     <div class="clearfix">
       <div class="item" v-for="(c, index) in colors1" :style="{background: c}" @click="copy(index, 'colorEl1')"><input type="text" readonly :value="c" ref='colorEl1'></div>
