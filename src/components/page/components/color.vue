@@ -2,7 +2,7 @@
   .color {
     .item {
       float: left;
-      width: 10em;
+      width: 9em;
       padding: 0 1em;
       margin: 0 .05rem .1rem;
       font-size: .14rem;
@@ -51,7 +51,7 @@
   export default {
     data() {
       return {
-        colors1: ['#409eff', '#67c23a', '#e6a23c', '#f56c6c', '#bbb'],
+        colors1: ['#409eff', '#67c23a', '#e6a23c', '#f56c6c', '#bbb', 'rgba(255,255,255,.5)', 'rgba(0,0,0,.5)'],
         colors2: ["#f0f4f3", "#d9eaf1", "#d5f0e7", "#a1e3c7", "#b36a63", "#d6b311", "#c96527", "#ff3102", "#9c2833", '#f25500', '#f00'],
         colors3: ['#fc605d', '#fdbc40', '#34c849']
       };
