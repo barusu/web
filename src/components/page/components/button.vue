@@ -14,7 +14,7 @@
 <template>
   <div class="button">
     <h2><span>Button</span> <span class="chinese">按钮</span></h2>
-    <p>普通的按钮.</p>
+    <p>基础的操作按钮,只监听了点击事件,其它事件需使用.native来监听或自行添加.</p>
     <p class="tip">动画与disabled的样式需浏览器对 <a class="keyword" href="https://caniuse.com/#search=filter" target="blank">filter</a> 的支持.</p>
     <h3><span>基础的纯css按钮.</span></h3>
     <p>原料.</p>
@@ -92,7 +92,7 @@
         <o-button effect="spread" type="primary">Spread</o-button>
       </div>
       <div class="item">
-        <o-button effect="spread" type="info" icon="bilibili">Spread</o-button>
+        <o-button effect="spread" type="info" icon="bilibili" :loading="loading" @click="loading = !loading">Spread</o-button>
       </div>
       <div class="item">
         <o-button effect="spread" type="warning"><o-svg type="warn"></o-svg><span>Spread</span></o-button>
@@ -116,6 +116,7 @@
         <o-button effect="spread" shape="rectangle" type="info" icon="bilibili">Rectangle</o-button>
       </div>
     </div>
+    <o-doc :list="doc"></o-doc>
   </div>
 </template>
 
@@ -123,7 +124,17 @@
   export default {
     data() {
       return {
-        baseDisabled: false
+        baseDisabled: false,
+        loading: false,
+        doc: [
+          {property: 'type', description: '情景色: primary/info/success/warning/error; 边框类型: dashed/dotted 多个时优先级递增', type: 'String', default: ''},
+          {property: 'disabled', description: '是否禁用,禁用后会变成黑白模式同时鼠标hover时会有禁用样式, 屏蔽事件', type: 'Boolean', default: 'false'},
+          {property: 'width', description: '设定按钮最小宽度,支持auto/inherit以及px、em、%等单位的数值', type: 'Length', default: 'auto'},
+          {property: 'effect', description: '附加动画效果, spread: 波纹扩散', type: 'String', default: ''},
+          {property: 'shape', description: '形状,可能的值: circle/rectangle, circle需要与icon搭配使用来制作图标按钮', type: 'String', default: ''},
+          {property: 'icon', description: '附加图标, 值为o-svg支持的所有值, 默认位置在左边如需在特定位置添加请直接在文字中使用o-svg添加', type: 'String', default: ''},
+          {property: 'loading', description: '加载状态, 添加loading icon 如已有icon属性生成的图标会替换掉原有图标, 同disabled一样会屏蔽事件', type: 'Boolean', default: 'false'}
+        ]
       };
     },
     methods: {
