@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       <tr v-for="i in list">
-        <td is="o-td" :value="i.property"></td>
+        <td v-html="i.property"></td>
         <td is="o-td" :value="i.description"></td>
         <td is="o-td" :value="i.type"></td>
         <td is="o-td" :value="i.default || '—'"></td>
@@ -25,7 +25,7 @@
     components: {
       oTd: {
         render(creatE) {
-          const key = ['String'];
+          const key = ['String', 'Boolean', 'Length', 'false', 'true', 'auto', 'disabled'];
           var v = this.value;
           key.forEach(i => {
             v = v.replace(new RegExp(i, 'g'), 'ø' + i + 'ø');
