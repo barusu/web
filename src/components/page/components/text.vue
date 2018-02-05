@@ -74,7 +74,7 @@
     data() {
       return {
         doc: [
-          {property: 'type', description: 'title/tag/time: 情景色 code: 特殊样式', type: 'String', default: ''},
+          {property: 'type', description: '情景色: title/tag/time; 特殊样式: code', type: 'String', default: ''},
           {property: 'title', description: '添加额外的提示信息,会在鼠标移到文字上时显示', type: 'String', default: ''},
           {property: 'transparent', description: '透明文字,可复制但不可见', type: '存在即启用', default: ''},
           {property: 'hidden', description: '涂黑的文字,可复制但不可直接阅读', type: '存在即启用', default: ''},
