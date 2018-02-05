@@ -151,6 +151,16 @@
         color: #fff;
       }
     }
+    &.success {
+      .btn {
+        background-color: #34c849;
+        border-color: #34c849;
+        color: #fff;
+        &::before {
+          color: #34c849;
+        }
+      }
+    }
     &.warning {
       .btn {
         background-color: #fdbc40;
@@ -168,16 +178,6 @@
         color: #fff;
         &::before {
           color: #fc605d;
-        }
-      }
-    }
-    &.success {
-      .btn {
-        background-color: #34c849;
-        border-color: #34c849;
-        color: #fff;
-        &::before {
-          color: #34c849;
         }
       }
     }
