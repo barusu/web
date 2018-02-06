@@ -11,6 +11,7 @@ import oList from './list';
 import oUpload from './upload';
 import oTextarea from './textarea';
 import oDoc from './doc';
+import oLog from './log';
 
 const install = function(Vue) {
   Vue.prototype.$msg = message;
@@ -26,6 +27,7 @@ const install = function(Vue) {
   Vue.component('oList', oList);
   Vue.component('oUpload', oUpload);
   Vue.component('oDoc', oDoc);
+  Vue.component('oLog', oLog);
 };
 
 export default {
