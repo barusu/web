@@ -9,33 +9,6 @@
         color: inherit;
       }
     }
-    .log {
-      position: relative;
-      padding-left: 6em;
-      margin-bottom: .5em;
-      font-size: 12px;
-      .date {
-        position: absolute;
-        left: 0; top: 3px;
-      }
-      p {
-        font-size: 12px;
-        margin: 0;
-        &::before {
-          content: '';
-          display: inline-block;
-          width: 5px;
-          height: 5px;
-          background: #777;
-          transform: rotate(45deg);
-          vertical-align: middle;
-          margin-right: 5px;
-          margin-top: -3px;
-          border: 2px solid #777;
-          border-color: #111 #444 #666 #999;
-        }
-      }
-    }
   }
 </style>
 
@@ -63,10 +36,7 @@
     <p>页面内非iframe组件区域右键选择编辑进入编辑界面,点击需要删除的图表右上角的红色叉叉.<o-text type="key">此操作不可逆,恢复需重新添加</o-text></p>
     <iframe src="/static/layout/index.html#index?id=02" frameborder="0" width="100%" :height="height" ref="iframe"></iframe>
     <h3><span>Update</span></h3>
-    <div class="log" v-for="l in log">
-      <o-text type="time" class="date">{{l.date}}</o-text>
-      <o-list class="diamond" :list="l.log"></o-list>
-    </div>
+    <o-log :log="log"></o-log>
   </div>
 </template>
 
