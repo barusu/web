@@ -116,6 +116,7 @@
         <o-button effect="spread" shape="rectangle" type="info" icon="bilibili">Rectangle</o-button>
       </div>
     </div>
+    <h3><span>API</span></h3>
     <o-doc :list="doc"></o-doc>
   </div>
 </template>
