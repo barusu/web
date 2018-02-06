@@ -6,12 +6,15 @@ var poi = 1;
 var instance;
 var instances = [];
 
-const Message = function(option) {
+const Message = function(option, duration) {
   option = option || {};
   if (typeof option === 'string') {
     option = {
       message: option
     };
+  }
+  if(duration) {
+    option.duration = duration;
   }
   var closeCallBack = option.closed;
   var id = 'message_' + poi++;
@@ -28,15 +31,15 @@ const Message = function(option) {
   return instance.vm;
 };
 
-['success', 'warning', 'info', 'error'].forEach(type => {
-  Message[type] = option => {
+['info', 'success', 'warning', 'error'].forEach(type => {
+  Message[type] = (option, duration) => {
     if (typeof option === 'string') {
       option = {
         message: option
       };
     }
     option.type = type;
-    return Message(option);
+    return Message(option, duration);
   };
 });
 
