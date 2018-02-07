@@ -48,7 +48,7 @@
           <ul class="oo-menu-item-list">
             <li class="oo-menu-item"> <router-link :to="{name: 'icon'}">Icon</router-link> </li>
             <li class="oo-menu-item"> <router-link :to="{name: 'layout'}">Layout <span class="key">iframe</span></router-link> </li>
-            <li class="oo-menu-item"> <router-link :to="{name: 'layout'}">Layout <span class="key">.vue</span></router-link> </li>
+            <li class="oo-menu-item"> <router-link :to="{name: 'layout-vue'}">Layout <span class="key">.vue</span></router-link> </li>
           </ul>
         </p>
       </div>
