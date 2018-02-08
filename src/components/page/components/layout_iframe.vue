@@ -43,6 +43,12 @@
 <script>
   const log = [
     {
+      date: '2017-02-08',
+      log: [
+        {text: '修正内容块的宽度与偏移计算的基准数不同产生的偏移', status: 'forgive'}
+      ]
+    },
+    {
       date: '2017-02-07',
       log: [
         {text: '修正内容块的宽度取整产生的积累性误差', status: 'forgive'}
