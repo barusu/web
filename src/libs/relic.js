@@ -1,3 +1,5 @@
+import $ from '@/libs/ajax';
+
 var auth = {
   name: '',
   img: '',
@@ -10,6 +12,15 @@ var auth = {
   uid: '',
   token: ''
 };
+
+function verify() {
+  $.get('verify', data => {
+    var t = parseInt(data);
+    if(!isNaN(t)) {
+      sessionStorage.oo = t;
+    }
+  });
+}
 
 const relic = {
   setUser(ob) {
@@ -39,7 +50,17 @@ const relic = {
     auth.token = '';
   },
   get isLogin() {
-    if(auth.name && auth.token) {
+    if(auth.name && auth.token && auth.uid) {
+      if(sessionStorage.oo) {
+        var t = parseInt(sessionStorage.oo);
+        var n = +(new Date());
+        if(isNaN(t)) return false;
+        if(t > n || n - t > 3600000) {
+          verify();
+        }
+      }else {
+        verify();
+      }
       return true;
     }else {
       return false;
