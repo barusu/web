@@ -1,11 +1,9 @@
 <template>
-  <div class="oo-layout" @mousedown="showMenu" :class="config.borderType">
+  <div class="oo-layout" @mousedown="showMenu" :class="{'nopd': !config.borderType}">
     <div class="operation" v-if="isEdit">
-      <o-radio-group class="xs" v-model="config.listType" :data="[{name: '', value: 'nopd', icon: 'square'}, {name: '', value: '', icon: 'apps'}]"></o-radio-group>
-      <o-radio-group class="xs" v-model="config.borderType" :data="[{name: '普通', value: ''}, {name: '无边框', value: 'nopd'}]"></o-radio-group>
       <a href="javascript:;" @click="save">保存</a>
     </div>
-    <div class="content" ref="content" :style="wrapperStyle" :class="config.listType">
+    <div class="content" ref="content" :style="wrapperStyle" :class="{'nopd': !config.listType}">
       <div class="card" v-for="(i, index) in list" :style="i.style">
         <div class="card-body">
           <div class="card-content" :is="i.component" :option="i" ref="item"></div>
@@ -15,13 +13,11 @@
         </div>
       </div>
     </div>
-    <!-- <span v-show="isShowMenu" class="menu" :style="menuStyle" @click="edit" @mousedown.stop="" v-html="isEdit ? '保存' : '编辑'"></span> -->
   </div>
 </template>
 
 <script>
   import $ from '@/libs/ajax';
-  // import vColor from '@/components/page/components/color';
 
   var ucw,          // 矩阵单点宽度
     uch,            // 矩阵单点高度
@@ -189,9 +185,9 @@
   // 更新卡片位置
   function updateStyle(card) {
     if(!card.style) card.style = {};
-    card.style.width = ucw * card.w + 'px';
+    card.style.width = 25 * card.w / 3 + '%';
     card.style.height = uch * card.h + 'px';
-    card.style.left = ucw * card.x + 'px';
+    card.style.left = 25 * card.x / 3 + '%';
     card.style.top = uch * card.y + 'px';
   }
   // 检查善后情况（防止dealVictim执行次数过多）
@@ -301,10 +297,8 @@
   }
 
   export default {
-    components: {
-      // vColor
-    },
-    props: ['id', 'items', 'host', 'isEdit'],
+    components: {},
+    props: ['id', 'items', 'host', 'isEdit', 'config'],
     data() {
       return {
         list: [],
@@ -312,10 +306,6 @@
         murdererID: 0,
         isShowMenu: false,
         menuPoint: {x: 0, y: 0},
-        config: {
-          borderType: '',
-          listType: ''
-        },
         configID: 0,
         uch: 0,
         waitDelID: 0
@@ -347,11 +337,10 @@
     },
     methods: {
       save() {
-        this.isEdit = false;
+        this.$emit('saved');
         this.list.forEach(i => {
           this.updateItem(i);
         });
-        this.updateConfig();
       },
       loadDate() {
         if(!this.id) return;
@@ -362,12 +351,6 @@
             rs.forEach(i => {
               this.backup[i.id] = i.json && i.json != 'undefined' && JSON.parse(i.json) || {};
               option = i.json && i.json != 'undefined' && JSON.parse(i.json) || {};
-              if(i.name === 'config') {
-                this.config.borderType = option.borderType || '';
-                this.config.listType = option.listType || '';
-                this.configID = i.id;
-                return;
-              }
               option.id = i.id;
               option.minx = option.minx || 2;
               option.miny = option.miny || 2;
@@ -398,13 +381,12 @@
               }else {
                 $.delete(`${this.host}layout/delete/${i.id}`, rs => {
                   if(rs && rs.status) {
-                    this.$msg.success(rs.info || '删除成功');
                     removeBoxMatrix(i.id);
                     this.list.splice(index, 1);
                     deleteBlankLine();
                     this.waitDelID = 0;
                   }else {
-                    this.$msg.error(rs.info || '删除失败');
+                    this.$emit('msg', rs.info || '删除失败');
                   }
                 });
               }
@@ -421,13 +403,14 @@
                 json: JSON.stringify(option)
               }, data => {
                 if(!data.status) {
-                  this.$msg.error(data.info || '保存失败');
+                  this.$emit('msg', data.info || '保存失败');
                   console.log(data);
                 }
               });
             }
           }else if(rs === 401) {
-            this.$router.replace({name: 'login'});
+            this.$emit('msg', '没有权限访问');
+            // this.$router.replace({name: 'login'});
           }
         });
       },
@@ -441,42 +424,11 @@
           $.post(`${this.host}layout/update`, {
             type: this.id,
             id: i.id,
-            name: i.a,
+            name: 'vueVersion',
             json: JSON.stringify(tem)
           }, data => {
-            // console.log(data);
-          });
-        }
-      },
-      updateConfig() {
-        if(this.configID) {
-          var tem = this.backup[this.configID];
-          if(tem.borderType !== this.config.borderType || tem.listType !== this.config.listType) {
-            tem.borderType = this.config.borderType;
-            tem.listType = this.config.listType;
-            $.post(`${this.host}layout/update`, {
-              type: this.id,
-              id: this.configID,
-              name: 'config',
-              json: JSON.stringify(tem)
-            }, data => {
-              if(data && data.status) {
-                //
-              }
-            });
-          }
-        }else {
-          // console.log(JSON.stringify(this.config));
-          $.post(`${this.host}layout/save`, {
-            type: this.id,
-            name: 'config',
-            json: JSON.stringify(this.config)
-          }, data => {
-            if(data.status) {
-              this.$msg.success(data.info || '保存成功');
-              this.$router.push(this.pUrl);
-            }else {
-              this.$msg.error(data.info || '保存失败');
+            if(!(data && data.status)) {
+              this.$emit('msg', data.info || '更新失败');
             }
           });
         }
@@ -489,11 +441,6 @@
         }else {
           this.isShowMenu = false;
         }
-      },
-      edit() {
-        if(this.isEdit) this.save();
-        else this.isEdit = true;
-        this.isShowMenu = false;
       },
       move(i) {
         over();
@@ -541,13 +488,9 @@
       });
       matrix = [];
       that = this;
-      // document.oncontextmenu = function(){
-      //   return false;
-      // };
     },
     beforeDestroy() {
       matrix = null;
-      // document.oncontextmenu = null;
       over();
     }
   };
@@ -595,6 +538,8 @@
     }
     .content {
       position: relative;
+      padding: 0;
+      border: none;
       &.nopd .card{
         padding: 0;
       }
