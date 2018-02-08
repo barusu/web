@@ -28,6 +28,23 @@ function error(err) {
 }
 /* eslint-disable no-unused-vars */
 var ajax = {
+  delete(url, data, callback) {
+    if(Object.prototype.toString.call(data) === '[object Function]') {
+      callback = data;
+      data = {};
+    }
+    $.request(url, data, {method: 'delete'}).then(rs => {
+      var data;
+      try {
+        data = JSON.parse(rs.data);
+      }catch(e) {
+        data = rs.data;
+      }
+      callback(data);
+    }).catch(err => {
+      callback(error(err));
+    });
+  },
   get(url, data, callback) {
     if(Object.prototype.toString.call(data) === '[object Function]') {
       callback = data;
