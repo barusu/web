@@ -17,25 +17,20 @@
     <h2><span>Layout</span> <span class="chinese">自定义布局</span></h2>
     <p>提供用户自定义页面布局.</p>
     <h3><span>Download</span></h3>
-    <p><a href="https://github.com/barusu/web/tree/master/static/layout" target="blank"><o-svg type="github"></o-svg>GayHub</a></p>
+    <p><a href="https://github.com/barusu/web/blob/master/src/components/page/components/layout.vue" target="blank"><o-svg type="github"></o-svg>GayHub</a></p>
     <h3><span>Tip</span></h3>
-    <p>由于删除了登录系统这边的访问控制由接口来完成.</p>
-    <p>这个是iframe的精简版,只保留了位置和大小的修改功能.</p>
+    <p>这个是iframe版本的精简版,只保留了位置和大小的修改功能.</p>
     <h3><span>Use</span></h3>
-    <p>此类组件需使用iframe形式来嵌入页面内.</p>
-    <p>&lt;<o-text type="tag">iframe</o-text> src="/static/index.html#index?id=<o-text type="key" title="用户ID之类的唯一标识">Identification</o-text>" frameborder="0" width="100%" <o-text type="key" title="自适应高度需在调用页做额外处理">height="500"</o-text>&gt;&lt;/<o-text type="tag">iframe</o-text>&gt;</p>
-    <p><o-text type="title">Host</o-text></p>
-    <p>如需修改host去index.html中的&lt;head/&gt;中找到host变量替换即可.</p>
-    <p><o-text type="title">调整</o-text></p>
-    <p>页面内非iframe组件区域右键选择编辑进入编辑界面,在图表边缘按下鼠标可拖动调整位置,调整大小需使用右下角的缩放手柄.</p>
-    <p><o-text type="title">添加</o-text></p>
-    <p>页面内非iframe组件区域右键选择编辑进入编辑界面,顶部操作栏选择添加图表.</p>
-    <p><o-text type="title">修改</o-text></p>
-    <p>页面内非iframe组件区域右键选择编辑进入编辑界面,双击需要编辑的图表进入编辑界面.<o-text type="key">修改了位置需先保存,编辑操作会丢弃之前的位置修改记录</o-text></p>
-    <p><o-text type="title">删除</o-text></p>
-    <p>页面内非iframe组件区域右键选择编辑进入编辑界面,点击需要删除的图表右上角的红色叉叉.<o-text type="key">此操作不可逆,恢复需重新添加</o-text></p>
-    <o-layout id="test" :isEdit="true" :items="['vColor', 'vColor', 'vColor', 'vColor']" host="http://192.68.68.77:8888/rest/v1/"></o-layout>
-    <!-- <iframe src="/static/layout/index.html#index?id=02" frameborder="0" width="100%" :height="height" ref="iframe"></iframe> -->
+    <p>由于需要保持位置信息到数据库,需要Ajax库的支持,如使用其它库需支持get, post, delete三个快捷请求方式,参数形式类似Jquery的get.</p>
+    <p>为了减少依赖删除了内部的相关组件引用,内部只保留了保存按钮,开启编辑、外边框与列表边框的设置改由props传参设置.</p>
+    <p>
+      <o-button type="info" @click="isEdit = true">修改</o-button>
+      <o-checkbox v-model="config.borderType">边框</o-checkbox>
+      <o-checkbox v-model="config.listType">列表间隙</o-checkbox>
+    </p>
+    <o-layout id="test" :isEdit="isEdit" :config="config" :items="['oUpload', 'oUpload', 'oUpload', 'oUpload']" @saved="isEdit = false" host="http://192.68.68.77:8888/rest/v1/"></o-layout>
+    <h3><span>API</span></h3>
+    <o-doc :list="doc"></o-doc>
     <h3><span>Update</span></h3>
     <o-log :log="log"></o-log>
   </div>
@@ -45,53 +40,33 @@
   import oLayout from '@/components/page/components/layout.vue';
   import vColor from '@/components/page/components/color';
 
-  const log = [
-    {
-      date: '2017-02-07',
-      log: [
-        {text: '修正内容块的宽度取整产生的积累性误差', status: 'forgive'}
-      ]
-    }, {
-      date: '2017-01-24',
-      log: [
-        {text: '组件如使用base64的图片在编辑时浏览器会陷入卡死状态(应该是长度超过一定的程度导致的,具体原因未找到)', status: 'error'}
-      ]
-    }, {
-      date: '2017-01-23',
-      log: [
-        {text: '编辑页添加小屏的支持(最小到宽度720px)', status: 'forgive'},
-        {text: '编辑页添加返回按钮(仍可以使用浏览器自带的返回)', status: 'forgive'},
-        {text: '删除Title属性(接口忘了让给加了,而且反正也没用就直接删掉吧)', status: 'forgive'}
-      ]
-    }, {
-      date: '2017-01-22',
-      log: [
-        {text: '实装删除功能', status: 'forgive'},
-        {text: '修正编辑时ID丢失导致编辑内容“消失”', status: 'forgive'},
-        {text: '添加列表显示模式切换', status: 'forgive'}
-      ]
-    }, {
-      date: '2017-01-18',
-      log: [
-        {text: '修正切换边框类型后内部高度没有重新计算', status: 'forgive'},
-        {text: '修正编辑时切换边框类型内部组件自适应的基准为旧值', status: 'forgive'}
-      ]
-    }, {
-      date: '2017-01-17', log: [
-        {text: '添加边距控制开关,新增无边距模式', status: 'forgive'},
-        {text: '调整编辑栏样式', status: 'forgive'},
-        {text: '编辑功能在独立出去后会丢失ID,暂不可用', status: 'error'},
-        {text: '删除功能未实装,删除只是从页面上删除了', status: 'error'}
-      ]
-    }
-  ];
-
   export default {
     components: {oLayout, vColor},
     data() {
       return {
+        isEdit: false,
+        config: {
+          borderType: false,
+          listType: true
+        },
         height: 500,
-        log: log
+        doc: [
+          {property: 'id', description: '数据归属标识,如需让每个用户都能独立可修改各自的布局,传入用户的唯一标识即可（不可为空）', type: 'String', default: ''},
+          {property: 'host', description: '保存、修改接口的服务器地址,未传入会使用相对路径发送请求,所以也是不可为空（格式:http://192.68.68.77:8888/rest/v1/）', type: 'String', default: ''},
+          {property: 'isEdit', description: '控制页面布局是否可编辑', type: 'Boolean', default: 'false'},
+          {property: 'config', description: '边框控制, borderType: 外部边框, listType: 内容块之间的边框', type: 'Object', default: '{borderType: false, listType: false }'},
+          {property: 'items', description: '内容块组件的名字数组, 组件需先全局注册或者在layout.vue内进行局部注册（不可为空）', type: 'Array', default: ''}
+        ],
+        log: [
+          {
+            date: '2017-02-08',
+            log: [
+              {text: '.vue版本提前修改完成', status: 'forgive'},
+              {text: '同步iframe版中修正的内容块的宽度取整产生的积累性误差', status: 'forgive'},
+              {text: '同步iframe版中修正的内容块的宽度与偏移计算的基准数不同产生的偏移', status: 'forgive'}
+            ]
+          }
+        ]
       };
     },
     methods: {
