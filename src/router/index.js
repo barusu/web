@@ -55,13 +55,13 @@ export default new Router({
       {path: 'upload', name: 'upload', component: Upload}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies},
-    {path: '/entry', component: Entry, children: [
+    {path: '/entry', component: Entry, meta: {requiresAuth: true}, children: [
       {path: '', name: 'entry', component: Color},
       {path: 'azurlane', name: 'azurlane', component: Azurlane},
       {path: 'bill', name: 'bill', component: Bill},
       {path: 'backlog', name: 'backlog', component: Backlog}
     ]},
-    {path: '/album', component: Album, children: [
+    {path: '/album', component: Album, meta: {requiresAuth: true}, children: [
       {path: '', name: 'album', component: Aindex},
       {path: 'tabikaeru', name: 'tabikaeru', component: Tabikaeru}
     ]},
