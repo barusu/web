@@ -2,7 +2,7 @@
   <main class="component">
     <div class="sidebar">
       <div class="oo-menu">
-        <p class="oo-menu-title"> <span>Component</span> </p>
+        <p class="oo-menu-title"> <router-link :to="{name: 'component'}">Component</router-link> </p>
         <input type="checkbox" id="ck_general" class="oo-ck">
         <p class="oo-menu-group">
           <label for="ck_general" class="oo-menu-group-title">

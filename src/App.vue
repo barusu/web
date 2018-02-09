@@ -161,7 +161,15 @@
   }
   .oo-menu-title {
     font-size: .18rem;
-    padding: 0 .16rem 0 .3rem;
+    > a {
+      display: block;
+      padding: 0 .16rem 0 .3rem;
+      color: #333;
+      transition: all .34s;
+      &:hover {
+      color: #50bfff;
+      }
+    }
   }
   .oo-menu-group-title {
     position: relative;
