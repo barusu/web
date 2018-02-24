@@ -54,7 +54,7 @@ export default new Router({
       {path: 'list', name: 'list', component: List},
       {path: 'upload', name: 'upload', component: Upload}
     ]},
-    {path: '/stickies', name: 'stickies', component: Stickies},
+    {path: '/stickies', name: 'stickies', component: Stickies, meta: {requiresAuth: true}},
     {path: '/entry', component: Entry, meta: {requiresAuth: true}, children: [
       {path: '', name: 'entry', component: Color},
       {path: 'azurlane', name: 'azurlane', component: Azurlane},
