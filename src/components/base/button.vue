@@ -30,7 +30,15 @@
   $infoColor: #50bfff;
   .oo-button {
     display: inline-block;
+    padding: 0 1px;
+    filter: brightness(100%);
     transition: filter .34s;
+    &:hover {
+      filter: brightness(107%);
+    }
+    &:active {
+      filter: brightness(93%);
+    }
     &.disabled {
       filter: grayscale(100%);
       cursor: not-allowed;
@@ -56,7 +64,6 @@
       border-radius: 4px;
       color: #444;
       text-align: center;
-      filter: brightness(100%);
       user-select: none;
       cursor: pointer;
       transition: background .34s, border .34s, filter .34s, color .34s;
@@ -90,10 +97,10 @@
       &:hover {
         border-color: #409eff;
         color: #409eff;
-        filter: brightness(107%);
+        // filter: brightness(107%);
       }
       &:active {
-        filter: brightness(93%);
+        // filter: brightness(93%);
       }
       &.spread {
         &::before {
