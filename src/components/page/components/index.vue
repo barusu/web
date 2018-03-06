@@ -22,6 +22,13 @@
       return {
         log: [
           {
+            date: '2018-03-06',
+            log: [
+              {status: 'forgive', text: 'button组件的边缘裁剪问题修正(加了个1px的横线内边距防止边框被裁剪,影响应该不大吧,有问题下次再调整吧~)'},
+              {status: '', text: '我记得我写过slider的,可是怎么也找不到在哪里写过了,花了两个多小时重新撸了个出来=='}
+            ]
+          },
+          {
             date: '2018-03-05',
             log: [
               {status: 'error', text: '在button组件内发现一个filter的渲染问题,使用了filter的brightness后边框左右边缘部分遭到不明原因的裁剪,裁剪约0.5px,暂未确认在普通屏幕上的情况'}

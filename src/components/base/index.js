@@ -10,11 +10,13 @@ import oText from './text';
 import oList from './list';
 import oUpload from './upload';
 import oTextarea from './textarea';
+import oSlider from './slider';
 import oDoc from './doc';
 import oLog from './log';
 
 const install = function(Vue) {
   Vue.prototype.$msg = message;
+  Vue.component('oSlider', oSlider);
   Vue.component('oInput', oInput);
   Vue.component('oTextarea', oTextarea);
   Vue.component('oButton', oButton);
