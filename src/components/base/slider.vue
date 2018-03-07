@@ -59,7 +59,7 @@
   <div class="oo-slider" :class="{'disabled': disabled}">
     <div class="oo-slider-content" ref="content" @click="to">
       <div class="oo-slider-bar" :style="{width: per + '%'}"></div>
-      <div class="oo-slider-ball" :style="{left: per + '%'}"><span @mousedown.self="down" :class="{'hover': isMove}" ondragstart="return false"></span></div>
+      <div class="oo-slider-ball" :style="{left: per + '%'}" @click.stop=""><span @mousedown.self="down" :class="{'hover': isMove}" ondragstart="return false"></span></div>
     </div>
   </div>
 </template>
