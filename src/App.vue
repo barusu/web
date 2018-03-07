@@ -98,6 +98,17 @@
     from {transform: rotateY(0deg);}
     to   {transform: rotateY(360deg);}
   }
+  @keyframes moveBG {
+    from {background-position: 0% 0%;}
+    to   {background-position: -400% -200%;}
+  }
+  @keyframes slantMove {
+    0% {transform: translate3d(0, 0, 0);}
+    25% {transform: translate3d(-5%, -50%, 0);}
+    50% {transform: translate3d(-30%, -65%, 0);}
+    75% {transform: translate3d(-55%, -35%, 0);}
+    100%   {transform: translate3d(-75%, -50%, 0);}
+  }
 </style>
 
 <!-- chart style -->
