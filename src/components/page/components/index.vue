@@ -22,6 +22,14 @@
       return {
         log: [
           {
+            date: '2018-03-07',
+            log: [
+              {status: 'forgive', text: 'button组件的边缘裁剪的修正后额外加了负的margin来中和添加额外padding的影响'},
+              {status: '', text: '在Color中搞了个纯Css的渐变动画背景,用的background-position做动画效果,不能开启硬件加速每次都重绘挺占资源的,掉帧很严重'},
+              {status: '', text: '上面的动画只能小范围使用,像是按钮的背景之类的,代码已注释掉了,换成了伪元素::after用3D位移来实现类似效果'}
+            ]
+          },
+          {
             date: '2018-03-06',
             log: [
               {status: 'forgive', text: 'button组件的边缘裁剪问题修正(加了个1px的横线内边距防止边框被裁剪,影响应该不大吧,有问题下次再调整吧~)'},
