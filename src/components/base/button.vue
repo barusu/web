@@ -31,6 +31,7 @@
   .oo-button {
     display: inline-block;
     padding: 0 1px;
+    margin: 0 -1px;
     filter: brightness(100%);
     transition: filter .34s;
     &:hover {
@@ -97,10 +98,6 @@
       &:hover {
         border-color: #409eff;
         color: #409eff;
-        // filter: brightness(107%);
-      }
-      &:active {
-        // filter: brightness(93%);
       }
       &.spread {
         &::before {
