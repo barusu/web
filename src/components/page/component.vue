@@ -98,7 +98,7 @@
         font-size: .24rem;
         font-family: Helvetica, Arial, sans-serif;
         line-height: 2.5;
-        margin-top: 1em;
+        margin-top: .5em;
         .chinese {
           font-size: .22rem;
         }
@@ -113,7 +113,6 @@
         margin-bottom: .5em;
         &.tip {
           display: inline-block;
-          margin: 0;
           line-height: 1;
           border-radius: 1px;
           background: #fdbc40;
