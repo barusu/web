@@ -106,6 +106,12 @@
           font-weight: 300;
         }
       }
+      h5 {
+        font-size: .16rem;
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 2.5;
+        margin-top: .5em;
+      }
       p {
         line-height: 1.5;
         color: #678;
