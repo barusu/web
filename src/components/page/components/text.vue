@@ -6,64 +6,23 @@
 <template>
   <div class="text">
     <h2><span>Text</span> <span class="chinese">文本</span></h2>
-    <p>文本上的一些修饰.</p>
+    <p>给文本上添加一些效果.</p>
     <h3><span>Tooltip</span></h3>
-    <p><o-text title="体は剣で出来ている">I am the bone of my sword.</o-text></p>
-    <p><o-text title="血潮は鉄で 心は硝子">Steel is my body,and fire is my blood.</o-text></p>
-    <p><o-text title="几たびの戦场を越えて不败">I have created over a thousand blades.</o-text></p>
-    <p><o-text title="ただの一度も败走はなく">Unknown to Death.</o-text></p>
-    <p><o-text title="ただの一度も理解されない">Nor known to Life.</o-text></p>
-    <p><o-text title="彼の者は常に独り 剣の丘で胜利に酔う">Have withstood pain to create many weapons.</o-text></p>
-    <p><o-text title="故に、生涯に意味はなく">Yet, those hands will never hold anything.</o-text></p>
-    <p><o-text title="その体は、きっと剣で出来ていた">So as I pray, Unlimited Blade Works.</o-text></p>
-    <h3><span>Color</span></h3>
-    <p><o-text>Not sure if you know this</o-text></p>
-    <p><o-text hidden>But when we first met</o-text></p>
-    <p><o-text transparent title="你知道的太多了">I got so nervous I couldn't speak</o-text></p>
-    <p><o-text conceal>In that very moment</o-text></p>
-    <p><o-text type="title">I found the one and</o-text></p>
-    <p><o-text type="tag">My life had found this missing piece</o-text></p>
-    <p><o-text type="code">So as long as I live I love you</o-text></p>
-    <p><o-text type="time">Will have and hold you</o-text></p>
-    <p><o-text>You look so beautiful in white</o-text></p>
-    <p><o-text>And from now to my very last breathe</o-text></p>
-    <p><o-text>This day I'll cherish</o-text></p>
-    <p><o-text>You look so beautiul in white</o-text></p>
-    <p><o-text>Tonight</o-text></p>
-    <p><o-text>What we have is timeless</o-text></p>
-    <p><o-text>My love is endless</o-text></p>
-    <p><o-text>And with this dream I</o-text></p>
-    <p><o-text>Say to the world</o-text></p>
-    <p><o-text>You're my every reason you're all that I believe in</o-text></p>
-    <p><o-text>With all my heart I mean every word</o-text></p>
-    <p><o-text>So as long as I live I love you</o-text></p>
-    <p><o-text>Will have and hold you</o-text></p>
-    <p><o-text>You look so beautiful in white</o-text></p>
-    <p><o-text>And from now to my very last breath</o-text></p>
-    <p><o-text>This day I'll cherish</o-text></p>
-    <p><o-text>You look so beautiful in white</o-text></p>
-    <p><o-text>Tonight</o-text></p>
-    <p><o-text>oooh oh</o-text></p>
-    <p><o-text>You look so beautiful in white</o-text></p>
-    <p><o-text>Na na na na</o-text></p>
-    <p><o-text>So beautiful in white</o-text></p>
-    <p><o-text>Tonight</o-text></p>
-    <p><o-text>And if our daughter is what our future holds</o-text></p>
-    <p><o-text>I hope she has your eyes</o-text></p>
-    <p><o-text>Finds love like you and I did</o-text></p>
-    <p><o-text>Yeah, if she falls in love, I will let her go</o-text></p>
-    <p><o-text>I'll walk her down the aisle</o-text></p>
-    <p><o-text>She looks so beautiful in white</o-text></p>
-    <p><o-text>You look so beautiful in white</o-text></p>
-    <p><o-text>So as long as I live I love you</o-text></p>
-    <p><o-text>Will have hold you</o-text></p>
-    <p><o-text>You look so beautiful in white</o-text></p>
-    <p><o-text>And from now to my very last breath</o-text></p>
-    <p><o-text>This day I'll cherish</o-text></p>
-    <p><o-text>You look so beautiful in white</o-text></p>
-    <p><o-text>Tonight</o-text></p>
-    <p><o-text>You look so beautiful in white</o-text></p>
-    <p><o-text>Tonight</o-text></p>
+    <p>[title = "String"] 有点类似于title的效果,hover时会出现提示信息.</p>
+    <h5><o-text title="静夜思">A Tranquil Night</o-text></h5>
+    <p><o-text title="床前明月光">Before my bed a pool of night</o-text></p>
+    <p><o-text title="疑是地上霜">Can it be hoarfrost on the ground</o-text></p>
+    <p><o-text title="举头望明月">Looking up, I find the moon bright</o-text></p>
+    <p><o-text title="低头思故乡">Bowing, In homesickness I‘m drowned</o-text></p>
+    <h3><span>Color & Type</span></h3>
+    <p>为了方便统一修改弄了几个情景类型,以及几个视觉上隐藏文字的样式.</p>
+    <p><o-text conceal>时光静好 与君语</o-text> [conceal] 涂黑的文字,hover或选中时即可看到,有默认的Tooltip(你知道的太多了).</p>
+    <p><o-text hidden>细水流年 与君同</o-text> [hidden] 涂黑的文字,可复制到其它地方查看.</p>
+    <p><o-text transparent>繁华落尽 与君老</o-text> [transparent] 透明的文字,可复制到其它地方查看.</p>
+    <p>[type = "title"] <o-text type="title">3月8日港区改建公告</o-text></p>
+    <p>[type = "tag"] <o-text type="tag">年度游戏</o-text></p>
+    <p>[type = "code"] <o-text type="code">String</o-text><o-text type="code">Number</o-text></p>
+    <p>[type = "time"] <o-text type="time">2017-02-10</o-text></p>
     <h3><span>API</span></h3>
     <o-doc :list="doc"></o-doc>
   </div>
