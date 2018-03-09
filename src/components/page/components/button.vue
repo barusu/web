@@ -8,6 +8,9 @@
       border-radius: 4px;
       color: #fff;
     }
+    .tip {
+      margin: 0 5px 0;
+    }
   }
 </style>
 
@@ -16,7 +19,9 @@
     <h2><span>Button</span> <span class="chinese">按钮</span></h2>
     <p>基础的操作按钮,只监听了点击事件,其它事件需使用.native来监听或自行添加.</p>
     <p class="tip">动画与disabled的样式需浏览器对 <a class="keyword" href="https://caniuse.com/#search=filter" target="blank">filter</a> 的支持.</p>
-    <h3><span>基础的纯css按钮.</span></h3>
+    <h3><span>Dependencies</span><span class="chinese">依赖</span></h3>
+    <p><o-text type="code" title="base/svg.vue">SVG</o-text> 按钮中的图表全都是使用的SVG图标,不需要图标删除template里的标签即可.</p>
+    <h3><span class="chinese">基础的纯css按钮.</span></h3>
     <p>原料.</p>
     <div class="clearfix">
       <div class="item">
@@ -118,6 +123,8 @@
     </div>
     <h3><span>API</span></h3>
     <o-doc :list="doc"></o-doc>
+    <h3><span>Events</span></h3>
+    <o-doc :list="eventsDoc" type="event"></o-doc>
   </div>
 </template>
 
@@ -135,6 +142,9 @@
           {property: 'shape', description: '形状,可能的值: circle/rectangle, circle需要与icon搭配使用来制作图标按钮', type: 'String', default: ''},
           {property: 'icon', description: '附加图标, 值为o-svg支持的所有值, 默认位置在左边如需在特定位置添加请直接在文字中使用o-svg添加', type: 'String', default: ''},
           {property: 'loading', description: '加载状态, 添加loading icon 如已有icon属性生成的图标会替换掉原有图标, 同disabled一样会屏蔽事件', type: 'Boolean', default: 'false'}
+        ],
+        eventsDoc: [
+          {eventName: 'click', description: '点击事件的回调', callbackParamet: ''}
         ]
       };
     },
