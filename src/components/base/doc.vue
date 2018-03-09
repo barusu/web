@@ -1,19 +1,29 @@
 <template>
   <table class="o-doc">
     <thead>
-      <tr>
+      <tr v-if="type === 'doc'">
         <th>Property <span class="cn">属性</span></th>
         <th>Description <span class="cn">说明</span></th>
         <th>Type <span class="cn">类型</span></th>
         <th>Default <span class="cn">默认值</span></th>
       </tr>
+      <tr v-if="type === 'event'">
+        <th>EventName <span class="cn">事件名称</span></th>
+        <th>Description <span class="cn">说明</span></th>
+        <th>CallbackParamet <span class="cn">回调参数</span></th>
+      </tr>
     </thead>
     <tbody>
-      <tr v-for="i in list">
+      <tr v-for="i in list" v-if="type === 'doc'">
         <td v-html="i.property"></td>
         <td is="o-td" :value="i.description"></td>
         <td is="o-td" :value="i.type"></td>
         <td is="o-td" :value="i.default || '—'"></td>
+      </tr>
+      <tr v-for="i in list" v-if="type === 'event'">
+        <td v-html="i.eventName"></td>
+        <td is="o-td" :value="i.description"></td>
+        <td is="o-td" :value="i.callbackParamet || '—'"></td>
       </tr>
     </tbody>
   </table>
@@ -21,7 +31,13 @@
 
 <script>
   export default {
-    props: ['list'],
+    props: {
+      list: null,
+      type: {
+        type: String,
+        default: 'doc'
+      }
+    },
     components: {
       oTd: {
         render(creatE) {
