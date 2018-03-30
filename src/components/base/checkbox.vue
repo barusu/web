@@ -19,11 +19,11 @@
     computed: {
       Indeterminate() {
         // eslint-disable-next-line
-        return this.indeterminate !== undefined;
+        return this.indeterminate !== undefined && this.indeterminate !== false;
       },
       Disabled() {
         // eslint-disable-next-line
-        return this.disabled !== undefined;
+        return this.disabled !== undefined && this.disabled !== false;
       },
       Name() {
         return this.name || `checkbox${this.seq}`;
