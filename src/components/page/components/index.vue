@@ -22,6 +22,12 @@
       return {
         log: [
           {
+            date: '2018-03-30',
+            log: [
+              {status: '', text: '还活着,只是玩了两百多小时塞尔达~~'}
+            ]
+          },
+          {
             date: '2018-03-07',
             log: [
               {status: 'forgive', text: 'button组件的边缘裁剪的修正后额外加了负的margin来中和添加额外padding的影响'},
