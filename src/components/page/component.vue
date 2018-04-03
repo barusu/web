@@ -39,6 +39,16 @@
             <li class="oo-menu-item"> <router-link :to="{name: 'upload'}">Upload</router-link> </li>
           </ul>
         </p>
+        <input type="checkbox" id="ck_special" class="oo-ck">
+        <p class="oo-menu-group">
+          <label for="ck_special" class="oo-menu-group-title">
+            <div>Special</div>
+            <span class="oo-arrow"></span>
+          </label>
+          <ul class="oo-menu-item-list">
+            <li class="oo-menu-item"> <router-link :to="{name: 'fontmask'}">Font Mask</router-link> </li>
+          </ul>
+        </p>
         <input type="checkbox" id="ck_project" class="oo-ck">
         <p class="oo-menu-group">
           <label for="ck_project" class="oo-menu-group-title">

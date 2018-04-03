@@ -42,6 +42,8 @@
         <o-button effect="spread" type="info" @click="showIconMessage('This is a info message', 'bilibili')">Icon</o-button>
       </div>
     </div>
+    <h3><span>Dependencies</span><span class="chinese">依赖</span></h3>
+    <p><o-text type="code" title="base/svg.vue">SVG</o-text> 按钮中的图表全都是使用的SVG图标,不需要图标删除template里的标签即可.</p>
     <h3><span>API</span></h3>
     <p>组件提供了一些方法来打开消息提示.</p>
     <o-list :list="list" class="border list" type="diamond"></o-list>
@@ -77,7 +79,7 @@
         ],
         log: [
           {
-            date: '2017-02-05',
+            date: '2018-02-05',
             log: [
               {text: 'info图标还没有', status: 'error'},
               {text: '已有的三个图标不成套,需替换', status: 'error'}

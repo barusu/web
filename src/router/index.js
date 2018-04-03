@@ -28,6 +28,7 @@ import Album from '@/components/page/album';
 import Aindex from '@/components/page/album/index';
 import Tabikaeru from '@/components/page/album/tabikaeru';
 import About from '@/components/page/about';
+import fontMask from '@/components/page/components/font_mask';
 
 Vue.use(Router);
 
@@ -52,7 +53,8 @@ export default new Router({
       {path: 'layout', name: 'layout', component: Layout},
       {path: 'layout-vue', name: 'layout-vue', component: LayoutVue},
       {path: 'list', name: 'list', component: List},
-      {path: 'upload', name: 'upload', component: Upload}
+      {path: 'upload', name: 'upload', component: Upload},
+      {path: 'font-mask', name: 'fontmask', component: fontMask}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies, meta: {requiresAuth: true}},
     {path: '/entry', component: Entry, meta: {requiresAuth: true}, children: [
