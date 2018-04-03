@@ -32,6 +32,7 @@
   <div class="list">
     <h2><span>List</span> <span class="chinese">列表</span></h2>
     <p>简单纯粹的列表.</p>
+    <p>好像没啥用的样子,先放着吧,想到用途了再改.</p>
     <o-list :list="rule" class="border" type="diamond" status="forgive"></o-list>
   </div>
 </template>
