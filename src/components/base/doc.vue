@@ -41,7 +41,7 @@
     components: {
       oTd: {
         render(creatE) {
-          const key = ['String', 'Boolean', 'Length', 'false', 'true', 'auto', 'disabled', 'Object', 'Integer', 'Function', 'Array'];
+          const key = ['String', 'Boolean', 'Length', 'false', 'true', 'auto', 'disabled', 'Object', 'Integer', 'Function', 'Array', 'Color', 'Number'];
           var v = this.value;
           key.forEach(i => {
             v = v.replace(new RegExp(i, 'g'), 'ø' + i + 'ø');
