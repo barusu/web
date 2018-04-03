@@ -263,7 +263,6 @@
     methods: {
       select(c) {
         this.color = c;
-        console.log('a');
       },
       copy(index, eln) {
         try {
