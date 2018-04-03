@@ -35,7 +35,7 @@
           {property: 'fz', description: '不设置时根据当前实际显示区域自动调整字体大小,可以传值设定成固定字体大小(需附带单位)', type: 'String', default: 'auto'},
           {property: 'scale', description: '文字的缩放,只在未设置 fz 时生效,在自适应的字体大小上添加额外的缩放比例调整实际字体大小', type: 'Number', default: '1'},
           {property: 'opacity', description: '蒙版的透明度设置,可以单设中间部分蒙版的不透明度,分别为中间与上下的不透明度', type: 'Array / Number', default: '[80, 60]'}
-        ],
+        ]
       };
     },
     methods: {},
