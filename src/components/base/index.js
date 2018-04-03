@@ -13,6 +13,7 @@ import oTextarea from './textarea';
 import oSlider from './slider';
 import oDoc from './doc';
 import oLog from './log';
+import fontMask from './font-mask';
 
 const install = function(Vue) {
   Vue.prototype.$msg = message;
@@ -30,6 +31,7 @@ const install = function(Vue) {
   Vue.component('oUpload', oUpload);
   Vue.component('oDoc', oDoc);
   Vue.component('oLog', oLog);
+  Vue.component('fontMask', fontMask);
 };
 
 export default {
