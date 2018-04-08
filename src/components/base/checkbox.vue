@@ -86,7 +86,7 @@
         top: 50%; left: .02rem;
         display: block;
         width: .1rem;
-        height: 0;
+        height: 2;
         border: 1px solid #fff;
         border-radius: 1px;
         transform: translate3D(0,-50%,0);
