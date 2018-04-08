@@ -22,9 +22,13 @@
         <o-input v-model="t" label="带文字"></o-input>
       </div>
       <div class="item">
-        <o-input v-model="t" type="single" label="单线条型"></o-input>
+        <o-input v-model="t" skin="single" label="单线条型"></o-input>
       </div>
     </div>
+    <h3><span>API</span></h3>
+    <o-doc :list="doc"></o-doc>
+    <h3><span>Events</span></h3>
+    <o-doc :list="eventsDoc" type="event"></o-doc>
   </div>
 </template>
 
@@ -32,7 +36,17 @@
   export default {
     data() {
       return {
-        t: ''
+        t: '',
+        doc: [
+          {property: 'label', description: '提示文本', type: 'String', default: ''},
+          {property: 'placeholder', description: 'placeholder', type: 'String', default: ''},
+          {property: 'readonly', description: '是否只读(属性存在未赋值同为true)', type: 'Boolean', default: 'false'},
+          {property: 'skin', description: '自定义皮肤,目前已有base,single两种,会作为class附加在最外层上', type: 'String', default: 'base'}
+        ],
+        eventsDoc: [
+          {eventName: 'v-model', description: '双向绑定(语法糖value&input可拆分使用)', callbackParamet: ''},
+          {eventName: 'blur', description: '失焦事件', callbackParamet: ''}
+        ]
       };
     },
     methods: {
