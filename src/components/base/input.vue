@@ -1,5 +1,5 @@
 <template>
-  <label class="input-wrapper" :class="type">
+  <label class="input-wrapper" :class="skin">
     <span v-if="label" v-html="label" class="label" @click="click"></span>
     <input type="text" v-model="field" :placeholder="placeholder" @blur="blur" :readonly="readOnly">
   </label>
@@ -14,7 +14,7 @@
       label: String,
       value: [String, Number],
       placeholder: String,
-      type: {
+      skin: {
         type: String,
         default: 'base'
       },
@@ -31,7 +31,7 @@
     computed: {
       readOnly() {
         // eslint-disable-next-line
-        return this.readonly !== undefined;
+        return this.readonly !== undefined && this.readonly !== false;
       },
       field: {
         set(v) {
