@@ -10,11 +10,11 @@
     </transition-group>
     <div class="add-item" v-if="!imgs.length" :class="{'ready': isReady}">
       <div class="add">
-        <label class="add-icon"><input type="file" name="file" accept="image/*"><i></i></label>
+        <label class="add-icon"><input type="file" ref="file" name="file" @change="change" accept="image/*" multiple="multiple"><i></i></label>
       </div>
       <p class="memo">点击选择或将图片拖到这里</p>
     </div>
-    <div class="operation" v-else>
+    <div class="operation" v-if="imgs.length">
       <o-button type="info" @click="upload">上传</o-button>
     </div>
   </div>
@@ -68,6 +68,19 @@
               this.imgs.push(img);
             }
           }
+          this.updateImgsBase64(0);
+        }
+      },
+      change() {
+        if(this.$refs.file.files.length) {
+          for(var i = 0; i < this.$refs.file.files.length; i++) {
+            var img = {file: this.$refs.file.files[i], base64: '', id: this.poi++};
+            if(this.imgs.some(i => (i.file.size === img.file.size && i.file.name === img.file.name && i.file.lastModified === img.file.lastModified))) continue;
+            if(img.file.type.indexOf('image/') === 0 && img.file.size < 10000000) {
+              this.imgs.push(img);
+            }
+          }
+          this.$refs.file.value = '';
           this.updateImgsBase64(0);
         }
       },
