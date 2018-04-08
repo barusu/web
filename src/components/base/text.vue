@@ -8,15 +8,15 @@
     computed: {
       Hidden() {
         // eslint-disable-next-line
-        return this.hidden !== undefined;
+        return this.hidden !== undefined && this.hidden !== false;
       },
       Transparent() {
         // eslint-disable-next-line
-        return this.transparent !== undefined;
+        return this.transparent !== undefined && this.transparent !== false;
       },
       Conceal() {
         // eslint-disable-next-line
-        return this.conceal !== undefined;
+        return this.conceal !== undefined && this.conceal !== false;
       }
     }
   };
@@ -64,6 +64,7 @@
         opacity: 0;
         transform-origin: 0% 100%;
         transition: all .34s .3s;
+        pointer-events: none;
       }
       &::before {
         content: '';
@@ -77,16 +78,19 @@
         transform: scale(.5);
         transform-origin: 50% 0%;
         transition: all .34s .3s;
+        pointer-events: none;
       }
       &:hover {
         &::before {
           left: 1em;
           transform: scale(1);
           opacity: 1;
+          pointer-events: all;
         }
         &::after {
           transform: translate(0, -100%) scale(1);
           opacity: 1;
+          pointer-events: all;
         }
       }
     }
