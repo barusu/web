@@ -1,5 +1,5 @@
 <template>
-  <div class="o-select" :class="type">
+  <div class="o-select" :class="skin">
     <span v-if="label" v-html="label" class="label"></span>
     <select class="select" v-model="field" :class="{'placeholder': !field}">
       <option value="" v-html="placeholder" disabled></option>
@@ -14,7 +14,7 @@
       label: String,
       value: [String, Number],
       placeholder: String,
-      type: {
+      skin: {
         type: String,
         default: 'base'
       },
