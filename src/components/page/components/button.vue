@@ -141,6 +141,7 @@
           {property: 'effect', description: '附加动画效果, spread: 波纹扩散', type: 'String', default: ''},
           {property: 'shape', description: '形状,可能的值: circle/rectangle, circle需要与icon搭配使用来制作图标按钮', type: 'String', default: ''},
           {property: 'icon', description: '附加图标, 值为o-svg支持的所有值, 默认位置在左边如需在特定位置添加请直接在文字中使用o-svg添加', type: 'String', default: ''},
+          {property: 'for', description: '外壳使用的label能直接继承for属性', type: 'String', default: ''},
           {property: 'loading', description: '加载状态, 添加loading icon 如已有icon属性生成的图标会替换掉原有图标, 同disabled一样会屏蔽事件', type: 'Boolean', default: 'false'}
         ],
         eventsDoc: [
