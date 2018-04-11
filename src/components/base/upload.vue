@@ -8,15 +8,17 @@
         </div>
       </div>
     </transition-group>
-    <div class="add-item" v-if="!imgs.length" :class="{'ready': isReady}">
+    <div class="add-item" v-show="!imgs.length" :class="{'ready': isReady}">
       <div class="add">
-        <label class="add-icon"><input type="file" ref="file" name="file" @change="change" accept="image/*" multiple="multiple"><i></i></label>
+        <label class="add-icon" for="file"><i></i></label>
       </div>
       <p class="memo">点击选择或将图片拖到这里</p>
     </div>
     <div class="operation" v-if="imgs.length">
+      <o-button type="info" for="file">继续添加</o-button>
       <o-button type="info" @click="upload">上传</o-button>
     </div>
+    <input id="file" type="file" ref="file" name="file" @change="change" accept="image/*" multiple="multiple">
   </div>
 </template>
 
@@ -249,10 +251,10 @@
         border-radius: 10px;
         pointer-events: none;
       }
-      > input {
-        position: absolute;
-        clip: rect(0,0,0,0);
-      }
+    }
+    input#file {
+      position: absolute;
+      clip: rect(0,0,0,0);
     }
     .list-enter, .list-leave-to {
       opacity: 0;
