@@ -21,6 +21,7 @@ $.engine = () => {
 
 function error(err) {
   if(err.status === 401) {
+    auth.clear();
     window.location.href = '/login';
   }
   console.error(err);
