@@ -1,11 +1,15 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import UI from '@/components/page/ui';
+
 import Login from '@/components/login';
-import Unboxing from '@/components/page/unboxing';
 import Index from '@/components/page/index';
+import UI from '@/components/page/ui';
+import Unboxing from '@/components/page/unboxing';
 import EditView from '@/components/page/editView';
 import Icon from '@/components/page/icon';
+import Stickies from '@/components/page/stickies';
+import About from '@/components/page/about';
+
 import Component from '@/components/page/component';
 import CIndex from '@/components/page/components/index';
 import Color from '@/components/page/components/color';
@@ -19,16 +23,20 @@ import List from '@/components/page/components/list';
 import Upload from '@/components/page/components/upload';
 import Layout from '@/components/page/components/layout_iframe';
 import LayoutVue from '@/components/page/components/layout_vue';
-import Stickies from '@/components/page/stickies';
+import fontMask from '@/components/page/components/font_mask';
+
 import Entry from '@/components/page/entry';
 import Azurlane from '@/components/page/entry/azurlane';
 import Bill from '@/components/page/entry/bill';
 import Backlog from '@/components/page/entry/backlog';
+
 import Album from '@/components/page/album';
 import Aindex from '@/components/page/album/index';
 import Tabikaeru from '@/components/page/album/tabikaeru';
-import About from '@/components/page/about';
-import fontMask from '@/components/page/components/font_mask';
+
+import Canvas from '@/components/page/canvas';
+import CvIndex from '@/components/page/canvas/index';
+import CvMusic from '@/components/page/canvas/music';
 
 Vue.use(Router);
 
@@ -55,6 +63,10 @@ export default new Router({
       {path: 'list', name: 'list', component: List},
       {path: 'upload', name: 'upload', component: Upload},
       {path: 'font-mask', name: 'fontmask', component: fontMask}
+    ]},
+    {path: '/canvas', component: Canvas, children: [
+      {path: '', name: 'canvas', component: CvIndex},
+      {path: 'music', name: 'canvas-music', component: CvMusic}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies, meta: {requiresAuth: true}},
     {path: '/entry', component: Entry, meta: {requiresAuth: true}, children: [
