@@ -71,6 +71,7 @@
     <nav>
       <router-link :to="{name: 'album'}">Album</router-link>
       <router-link :to="{name: 'component'}">Component</router-link>
+      <router-link :to="{name: 'canvas'}">Canvas</router-link>
       <router-link :to="{name: 'stickies'}">Stickies</router-link>
       <router-link :to="{name: 'entry'}">Entry</router-link>
       <router-link :to="{name: 'about'}">About</router-link>
