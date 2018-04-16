@@ -19,12 +19,12 @@ router.beforeEach((to, from, next) => {
         query: {
           redirect: to.fullPath
         }
-      })
+      });
     } else {
-      next()
+      next();
     }
   } else {
-    next() // 确保一定要调用 next()
+    next(); // 确保一定要调用 next()
   }
 });
 
