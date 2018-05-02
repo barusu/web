@@ -29,6 +29,7 @@ import Entry from '@/components/page/entry';
 import Azurlane from '@/components/page/entry/azurlane';
 import Bill from '@/components/page/entry/bill';
 import Backlog from '@/components/page/entry/backlog';
+import Code from '@/components/page/entry/code';
 
 import Album from '@/components/page/album';
 import Aindex from '@/components/page/album/index';
@@ -73,7 +74,8 @@ export default new Router({
       {path: '', name: 'entry', component: Color},
       {path: 'azurlane', name: 'azurlane', component: Azurlane},
       {path: 'bill', name: 'bill', component: Bill},
-      {path: 'backlog', name: 'backlog', component: Backlog}
+      {path: 'backlog', name: 'backlog', component: Backlog},
+      {path: 'code', name: 'code', component: Code}
     ]},
     {path: '/album', component: Album, meta: {requiresAuth: true}, children: [
       {path: '', name: 'album', component: Aindex},

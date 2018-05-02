@@ -2,7 +2,7 @@
   <main class="entry">
     <div class="sidebar">
       <div class="oo-menu">
-        <p class="oo-menu-title"> <span>Entry</span> </p>
+        <p class="oo-menu-title"> <router-link :to="{name: 'entry'}">Entry</router-link> </p>
         <input type="checkbox" id="ck_general" class="oo-ck">
         <p class="oo-menu-group">
           <label for="ck_general" class="oo-menu-group-title">
@@ -10,6 +10,7 @@
             <span class="oo-arrow"></span>
           </label>
           <ul class="oo-menu-item-list">
+            <li class="oo-menu-item"> <router-link :to="{name: 'code'}">Code</router-link> </li>
             <li class="oo-menu-item"> <router-link :to="{name: 'azurlane'}">Azurlane</router-link> </li>
             <li class="oo-menu-item"> <router-link :to="{name: 'bill'}">Bill</router-link> </li>
             <li class="oo-menu-item"> <router-link :to="{name: 'backlog'}">Backlog</router-link> </li>
