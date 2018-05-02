@@ -1,5 +1,5 @@
 <template>
-  <label class="textarea-wrapper" :class="type">
+  <label class="textarea-wrapper" :class="skin">
     <span v-if="label" v-html="label" class="label" @click="click"></span>
     <div class="textarea-wrapper">
       <pre>{{field}} </pre>
@@ -17,7 +17,7 @@
       label: String,
       value: [String, Number],
       placeholder: String,
-      type: {
+      skin: {
         type: String,
         default: 'base'
       },
@@ -53,6 +53,7 @@
     width: 100%;
     font-size: .12rem;
     line-height: 1;
+    &.base,
     &.single {
       display: block;
       > span {
@@ -102,39 +103,19 @@
       }
     }
     &.base {
-      display: inline-table;
-      > * {
-        display: table-cell;
-      }
       .label {
-        width: 1px;
-        height: 2.5em;
-        padding: 0 .1rem;
-        border-radius: 4px 0 0 4px;
-        border: 1px solid #bbb;
-        border-right: 0;
-        line-height: 2.4;
-        white-space: nowrap;
-        vertical-align: middle;
-        + input {
-          border-radius: 0 4px 4px 0;
+        line-height: 2;
+      }
+      .textarea-wrapper {
+        font-size: 12px;
+        pre {
+          padding: 5px .1rem
         }
       }
       textarea {
-        width: 100%;
-        height: 2.5em;
-        padding: 0 .1rem;
-        vertical-align: middle;
-        background: #fff;
         border: 1px solid #bbb;
         border-radius: 4px;
-        line-height: 2.5;
-        &:hover {
-          border-color: #999;
-        }
-        &:focus {
-          border-color: #50bfff;
-        }
+        padding: 4px .1rem
       }
     }
   }
