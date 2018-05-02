@@ -70,10 +70,10 @@
     <div class="body clearfix">
       <div class="item" v-for="i in 9">
         <div class="card">
-          <div class="img" :style="{backgroundImage: `url(http://pic.liebedich.cn/00${i}.jpg)`}"></div>
+          <div class="img"></div>
           <p class="title">死神小学生</p>
           <p class="intro">一个被死神附身的高中生被喂药后身体变小然后伪装成小学生不断杀人的故事</p>
-          <div><span>最新话: 666</span><span>当前: 0</span></div>
+          <div><span>最新话: </span><span>当前: 0</span></div>
         </div>
       </div>
     </div>
@@ -81,5 +81,23 @@
 </template>
 
 <script>
-  export default {};
+  import $ from '@/libs/ajax';
+
+  export default {
+    data() {
+      return {
+        data: []
+      };
+    },
+    methods: {
+      updateData() {
+        $.get('resource/game/list', {type: 4}, data => {
+          this.data = data;
+        });
+      }
+    },
+    mounted() {
+      this.updateData();
+    }
+  };
 </script>
