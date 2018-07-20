@@ -10,6 +10,10 @@ import Icon from '@/components/page/icon';
 import Stickies from '@/components/page/stickies';
 import About from '@/components/page/about';
 
+import Code from '@/components/page/code';
+import CodeIndex from '@/components/page/code/index';
+import CodeButton from '@/components/page/code/button';
+
 import Component from '@/components/page/component';
 import CIndex from '@/components/page/components/index';
 import Color from '@/components/page/components/color';
@@ -29,7 +33,6 @@ import Entry from '@/components/page/entry';
 import Azurlane from '@/components/page/entry/azurlane';
 import Bill from '@/components/page/entry/bill';
 import Backlog from '@/components/page/entry/backlog';
-import Code from '@/components/page/entry/code';
 
 import Album from '@/components/page/album';
 import Aindex from '@/components/page/album/index';
@@ -38,6 +41,7 @@ import Tabikaeru from '@/components/page/album/tabikaeru';
 import Canvas from '@/components/page/canvas';
 import CvIndex from '@/components/page/canvas/index';
 import CvMusic from '@/components/page/canvas/music';
+import CvGame from '@/components/page/canvas/game';
 
 Vue.use(Router);
 
@@ -49,6 +53,10 @@ export default new Router({
     {path: '/addview', name: 'addview', component: EditView, meta: {requiresAuth: true}},
     {path: '/editview/:id', name: 'editview', component: EditView, meta: {requiresAuth: true}},
     {path: '/unboxing', name: 'unboxing', component: Unboxing, meta: {requiresAuth: true}},
+    {path: '/code', component: Code, children: [
+      {path: '', name: 'code', component: CodeIndex},
+      {path: 'button', name: 'code_button', component: CodeButton}
+    ]},
     {path: '/component', component: Component, children: [
       {path: '', name: 'component', component: CIndex},
       {path: 'icon', name: 'icon', component: Icon},
@@ -67,15 +75,15 @@ export default new Router({
     ]},
     {path: '/canvas', component: Canvas, children: [
       {path: '', name: 'canvas', component: CvIndex},
-      {path: 'music', name: 'canvas-music', component: CvMusic}
+      {path: 'music', name: 'canvas-music', component: CvMusic},
+      {path: 'game', name: 'canvas-game', component: CvGame}
     ]},
     {path: '/stickies', name: 'stickies', component: Stickies, meta: {requiresAuth: true}},
     {path: '/entry', component: Entry, meta: {requiresAuth: true}, children: [
       {path: '', name: 'entry', component: Color},
       {path: 'azurlane', name: 'azurlane', component: Azurlane},
       {path: 'bill', name: 'bill', component: Bill},
-      {path: 'backlog', name: 'backlog', component: Backlog},
-      {path: 'code', name: 'code', component: Code}
+      {path: 'backlog', name: 'backlog', component: Backlog}
     ]},
     {path: '/album', component: Album, meta: {requiresAuth: true}, children: [
       {path: '', name: 'album', component: Aindex},

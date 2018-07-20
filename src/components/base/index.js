@@ -13,6 +13,7 @@ import oTextarea from './textarea';
 import oSlider from './slider';
 import oDoc from './doc';
 import oLog from './log';
+import oCode from './code';
 import fontMask from './font-mask';
 
 const install = function(Vue) {
@@ -31,6 +32,7 @@ const install = function(Vue) {
   Vue.component('oUpload', oUpload);
   Vue.component('oDoc', oDoc);
   Vue.component('oLog', oLog);
+  Vue.component('oCode', oCode);
   Vue.component('fontMask', fontMask);
 };
 

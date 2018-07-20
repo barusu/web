@@ -1,28 +1,32 @@
 <template>
-  <main class="canvas">
+  <main class="code-page">
     <div class="sidebar">
       <div class="oo-menu">
-        <p class="oo-menu-title"> <router-link :to="{name: 'canvas'}">Canvas</router-link> </p>
-        <input type="checkbox" id="ck_general" class="oo-ck">
+        <p class="oo-menu-title"> <router-link :to="{name: 'code'}">Code</router-link> </p>
+        <input type="checkbox" id="ck_css" class="oo-ck">
         <p class="oo-menu-group">
-          <label for="ck_general" class="oo-menu-group-title">
-            <div>BaseDemo</div>
+          <label for="ck_css" class="oo-menu-group-title">
+            <div>Css</div>
             <span class="oo-arrow"></span>
           </label>
           <ul class="oo-menu-item-list">
-            <li class="oo-menu-item"> <router-link :to="{name: 'canvas-music'}">Music</router-link> </li>
-            <li class="oo-menu-item"> <router-link :to="{name: 'canvas-game'}">Game</router-link> </li>
+            <li class="oo-menu-item"> <router-link :to="{name: 'code_button'}">Button</router-link> </li>
           </ul>
         </p>
       </div>
     </div>
     <router-view class="content"></router-view>
     <div class="clear-box"></div>
+    <o-footer class="footer"></o-footer>
   </main>
 </template>
 
 <script>
+  import oFooter from '@/components/footer';
   export default {
+    components: {
+      oFooter
+    },
     data () {
       return {};
     }
@@ -31,7 +35,7 @@
 
 <style lang="scss">
   $borderColor: #ddd;
-  .canvas {
+  .code-page {
     font-size: .16rem;
     .sidebar {
       min-height: 100px;
@@ -64,6 +68,33 @@
           font-weight: 300;
         }
       }
+      h5 {
+        font-size: .16rem;
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 2.5;
+        margin-top: .5em;
+      }
+      p {
+        line-height: 1.5;
+        color: #678;
+        font-size: .14rem;
+        margin-bottom: .5em;
+        &.tip {
+          display: inline-block;
+          line-height: 1;
+          border-radius: 1px;
+          background: #fdbc40;
+          box-shadow: 0 0 0 0.5em #fdbc40;
+          font-size: 12px;
+          color: #fff;
+        }
+        .keyword {
+          color: #ff3102;
+        }
+      }
+    }
+    .footer {
+      border-top: 1px solid $borderColor;
     }
   }
 </style>

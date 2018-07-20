@@ -107,7 +107,6 @@
         this.animate();
       },
       animate() {
-        if(!this.$refs.canvas) return;
         this.ctx.clearRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height);
         octx.clearRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height);
 
@@ -144,28 +143,28 @@
       }
     },
     mounted() {
-      this.analyser = this.AC.createAnalyser();
-      this.gainnode = this.AC.createGain();
-      this.gainnode.gain.value = 1;
-      this.$nextTick(() => {
-        this.$refs.canvas.width = this.$refs.canvas.clientWidth;
-        this.$refs.canvas.height = this.$refs.canvas.clientHeight;
-        this.ctx = this.$refs.canvas.getContext('2d');
-        grd = this.ctx.createLinearGradient(0, 110, 0, 270);
-        grd.addColorStop(0, "red");
-        grd.addColorStop(0.3, "yellow");
-        grd.addColorStop(1, "#00E800");
-        outcanvas.width = this.$refs.canvas.width;
-        outcanvas.height = this.$refs.canvas.height / 2;
-        octx = outcanvas.getContext('2d');
-        this.initAnimation();
-        // console.log(this.$refs.canvas.width);
-        // console.log(this.$refs.canvas.height);
-      });
-      this.play('static/demo1.mp3');
+      // this.analyser = this.AC.createAnalyser();
+      // this.gainnode = this.AC.createGain();
+      // this.gainnode.gain.value = 1;
+      // this.$nextTick(() => {
+      //   this.$refs.canvas.width = this.$refs.canvas.clientWidth;
+      //   this.$refs.canvas.height = this.$refs.canvas.clientHeight;
+      //   this.ctx = this.$refs.canvas.getContext('2d');
+      //   grd = this.ctx.createLinearGradient(0, 110, 0, 270);
+      //   grd.addColorStop(0, "red");
+      //   grd.addColorStop(0.3, "yellow");
+      //   grd.addColorStop(1, "#00E800");
+      //   outcanvas.width = this.$refs.canvas.width;
+      //   outcanvas.height = this.$refs.canvas.height / 2;
+      //   octx = outcanvas.getContext('2d');
+      //   this.initAnimation();
+      //   console.log(this.$refs.canvas.width);
+      //   console.log(this.$refs.canvas.height);
+      // });
+      // this.play('static/demo1.mp3');
     },
     beforeDestroy() {
-      this.Au.pause();
+      // this.Au.stop();
     }
   };
 </script>
