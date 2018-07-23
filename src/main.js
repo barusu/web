@@ -6,7 +6,7 @@ import router from './router';
 import store from '@/libs/relic';
 
 import oo from '@/components/base/index.js';
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/monokai-sublime.css';
 
 Vue.use(oo);
 

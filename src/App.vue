@@ -94,6 +94,12 @@
     float: none;
     *zoom: 1;
   }
+  .kakushi {
+    position: absolute;
+    filter: opacity(0);
+    clip: rect(0,0,0,0);
+    z-index: -99;
+  }
   @keyframes rotateY {
     from {transform: rotateY(0deg);}
     to   {transform: rotateY(360deg);}
