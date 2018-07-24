@@ -14,20 +14,7 @@
       user-select: none;
       vertical-align: middle;
       cursor: pointer;
-      transition: background .34s, border .34s, filter .34s, color .34s;
-      &:hover {
-        border-color: #409eff;
-        color: #409eff;
-      }
-      &:active {
-        filter: brightness(86%);
-      }
-      &.disabled {
-        filter: grayscale(100%);
-        cursor: not-allowed;
-        background: #ddd;
-        pointer-events: none;
-      }
+      transition: all 340ms;
       &::before {
         content: "";
         position: absolute;
@@ -40,13 +27,27 @@
         transition: all .4s linear;
         z-index: -1;
       }
+      &:hover {
+        border-color: #409eff;
+        color: #409eff;
+      }
       &:active {
+        filter: brightness(86%);
         &::before {
-          transition: all 1ms linear;
+          transition: box-shadow 1ms linear, opacity 1ms linear 2ms;
           box-shadow: 0 0 0 0;
           opacity: 0.618;
         }
       }
+      &.disabled {
+        filter: grayscale(100%);
+        cursor: not-allowed;
+        background: #ddd;
+        &:active::before {
+          opacity: 0;
+        }
+      }
+      // 自定义颜色
       &.info {
         background-color: #50bfff;
         border-color: #50bfff;
@@ -131,6 +132,7 @@
           }
         }
       }
+      // 自定义颜色
       &.primary {
         .btn {
           background-color: #409eff;
@@ -174,7 +176,7 @@
       <div class="button success">(•̀ω•́)✧</div>
       <button type="button" class="button disabled">じばく</button>
     </div>
-    <p class="tip">单标签的disabled效果不怎么好</p>
+    <p class="tip"><del>单标签的disabled效果不怎么好</del></p>
     <div class="code-wrapper clearfix">
       <input type="checkbox" id="code_btn1" class="kakushi code-control-ck" v-model="ck1">
       <div class="code-html">
@@ -225,12 +227,10 @@
       return {
         ck1: false,
         html1: '<button type="button" class="button">Base</button>\n<span class="button info">确认</span>\n<div class="button success">(•̀ω•́)✧</div>\n<button type="button" class="button disabled">じばく</button>',
-        scss1: '.button {\n  position: relative;\n  display: inline-block;\n  font-size: .14rem;\n  padding: 0 1em;\n  line-height: 2;\n  border: 1px solid #999;\n  border-radius: 4px;\n  color: #444;\n  background-color: transparent;\n  text-align: center;\n  user-select: none;\n  vertical-align: middle;\n  cursor: pointer;\n  transition: background .34s, border .34s, filter .34s, color .34s;\n  &:hover {\n    border-color: #409eff;\n    color: #409eff;\n  }\n  &:active {\n    filter: brightness(86%);\n  }\n  &.disabled {\n    filter: grayscale(100%);\n    cursor: not-allowed;\n    background: #ddd;\n    pointer-events: none;\n  }\n  &::before {\n    content: "";\n    position: absolute;\n    display: block;\n    top: -1px; left: -1px;\n    bottom: -1px; right: -1px;\n    border-radius: inherit;\n    opacity: 0;\n    box-shadow: 0 0 0 6px;\n    transition: all .4s linear;\n    z-index: -1;\n  }\n  &:active {\n    &::before {\n      transition: all 1ms linear;\n      box-shadow: 0 0 0 0;\n      opacity: 0.618;\n    }\n  }\n  &.info {\n    background-color: #50bfff;\n    border-color: #50bfff;\n    color: #fff;\n    &:before {\n      color: #50bfff;\n    }\n  }\n  &.success {\n    background-color: #34c849;\n    border-color: #34c849;\n    color: #fff;\n    &::before {\n      color: #34c849;\n    }\n  }\n}',
+        scss1: '.button {\n  position: relative;\n  display: inline-block;\n  font-size: .14rem;\n  padding: 0 1em;\n  line-height: 2;\n  border: 1px solid #999;\n  border-radius: 4px;\n  color: #444;\n  background-color: transparent;\n  text-align: center;\n  user-select: none;\n  vertical-align: middle;\n  cursor: pointer;\n  transition: all 340ms;\n  &::before {\n    content: "";\n    position: absolute;\n    display: block;\n    top: -1px; left: -1px;\n    bottom: -1px; right: -1px;\n    border-radius: inherit;\n    opacity: 0;\n    box-shadow: 0 0 0 6px;\n    transition: all .4s linear;\n    z-index: -1;\n  }\n  &:hover {\n    border-color: #409eff;\n    color: #409eff;\n  }\n  &:active {\n    filter: brightness(86%);\n    &::before {\n      transition: box-shadow 1ms linear, opacity 1ms linear 2ms;\n      box-shadow: 0 0 0 0;\n      opacity: 0.618;\n    }\n  }\n  &.disabled {\n    filter: grayscale(100%);\n    cursor: not-allowed;\n    background: #ddd;\n    &:active::before {\n      opacity: 0;\n    }\n  }\n  // 自定义颜色\n  &.info {\n    background-color: #50bfff;\n    border-color: #50bfff;\n    color: #fff;\n    &:before {\n      color: #50bfff;\n    }\n  }\n  &.success {\n    background-color: #34c849;\n    border-color: #34c849;\n    color: #fff;\n    &::before {\n      color: #34c849;\n    }\n  }\n}',
         ck2: false,
         html2: '<button type="button" class="o-button primary">\n  <span class="btn">Base</span>\n</button>\n<span class="o-button warning">\n  <span class="btn">确认</span>\n</span>\n<div class="o-button error">\n  <span class="btn">(•̀ω•́)✧</span>\n</div>\n<button type="button" class="o-button disabled">\n  <span class="btn">じばく</span>\n</button>',
-        scss2: '.button {\n  display: inline-block;\n  padding: 0 1px;\n  margin: 0 -1px;\n  border: none;\n  vertical-align: middle;\n  filter: brightness(100%);\n  transition: filter .34s;\n  &:hover {\n    filter: brightness(107%);\n  }\n  &:active {\n    filter: brightness(93%);\n  }\n  &.disabled {\n    filter: grayscale(100%);\n    cursor: not-allowed;\n    .btn {\n      background: #ddd;\n      pointer-events: none;\n    }\n  }\n  &.loading {\n    cursor: wait;\n    filter: opacity(66%);\n    .btn {\n      pointer-events: none;\n    }\n  }\n  .btn {\n    position: relative;\n    display: inline-block;\n    font-size: .14rem;\n    padding: 0 1em;\n    line-height: 2;\n    border: 1px solid #999;\n    border-radius: 4px;\n    color: #444;\n    text-align: center;\n    user-select: none;\n    cursor: pointer;\n    transition: background .34s, border .34s, filter .34s, color .34s;\n    &:hover {\n      border-color: #409eff;\n      color: #409eff;\n    }\n    &::before {\n      content: "";\n      position: absolute;\n      display: block;\n      top: -1px; left: -1px;\n      bottom: -1px; right: -1px;\n      border-radius: inherit;\n      opacity: 0;\n      box-shadow: 0 0 0 6px;\n      color: #50bfff;\n      transition: all .4s linear;\n      z-index: -1;\n    }\n    &:active {\n      &::before {\n        transition: all 1ms linear;\n        box-shadow: 0 0 0 0;\n        opacity: 0.618;\n      }\n    }\n  }\n  &.primary {\n    .btn {\n      background-color: #409eff;\n      border-color: #409eff;\n      color: #fff;\n      &::before {\n        color: #409eff;\n      }\n    }\n  }\n  &.warning {\n    .btn {\n      background-color: #fdbc40;\n      border-color: #fdbc40;\n      color: #fff;\n      &::before {\n        color: #fdbc40;\n      }\n    }\n  }\n  &.error {\n    .btn {\n      background-color: #fc605d;\n      border-color: #fc605d;\n      color: #fff;\n      &::before {\n        color: #fc605d;\n      }\n    }\n  }\n}',
-        html3: '',
-        scss3: ''
+        scss2: '.o-button {\n  display: inline-block;\n  padding: 0 1px;\n  margin: 0 -1px;\n  border: none;\n  vertical-align: middle;\n  filter: brightness(100%);\n  transition: filter .34s;\n  &:hover {\n    filter: brightness(107%);\n  }\n  &:active {\n    filter: brightness(93%);\n  }\n  &.disabled {\n    filter: grayscale(100%);\n    cursor: not-allowed;\n    .btn {\n      background: #ddd;\n      pointer-events: none;\n    }\n  }\n  &.loading {\n    cursor: wait;\n    filter: opacity(66%);\n    .btn {\n      pointer-events: none;\n    }\n  }\n  .btn {\n    position: relative;\n    display: inline-block;\n    font-size: 14px;\n    padding: 0 1em;\n    line-height: 2;\n    border: 1px solid #999;\n    border-radius: 4px;\n    color: #444;\n    text-align: center;\n    user-select: none;\n    cursor: pointer;\n    transition: background .34s, border .34s, filter .34s, color .34s;\n    &:hover {\n      border-color: #409eff;\n      color: #409eff;\n    }\n    &::before {\n      content: "";\n      position: absolute;\n      display: block;\n      top: -1px; left: -1px;\n      bottom: -1px; right: -1px;\n      border-radius: inherit;\n      opacity: 0;\n      box-shadow: 0 0 0 6px;\n      color: #50bfff;\n      transition: all .4s linear;\n      z-index: -1;\n    }\n    &:active {\n      &::before {\n        transition: all 1ms linear;\n        box-shadow: 0 0 0 0;\n        opacity: 0.618;\n      }\n    }\n  }\n  // 自定义颜色\n  &.primary {\n    .btn {\n      background-color: #409eff;\n      border-color: #409eff;\n      color: #fff;\n      &::before {\n        color: #409eff;\n      }\n    }\n  }\n  &.warning {\n    .btn {\n      background-color: #fdbc40;\n      border-color: #fdbc40;\n      color: #fff;\n      &::before {\n        color: #fdbc40;\n      }\n    }\n  }\n  &.error {\n    .btn {\n      background-color: #fc605d;\n      border-color: #fc605d;\n      color: #fff;\n      &::before {\n        color: #fc605d;\n      }\n    }\n  }\n}'
       };
     },
     methods: {

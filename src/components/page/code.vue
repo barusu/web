@@ -11,6 +11,8 @@
           </label>
           <ul class="oo-menu-item-list">
             <li class="oo-menu-item"> <router-link :to="{name: 'code_button'}">Button</router-link> </li>
+            <li class="oo-menu-item"> <router-link :to="{name: 'code_text'}">Text</router-link> </li>
+            <li class="oo-menu-item"> <router-link :to="{name: 'code_checkbox'}">Checkbox</router-link> </li>
           </ul>
         </p>
       </div>
@@ -126,6 +128,12 @@
           }
           pre {
             height: 42em;
+            &.m {
+              height: 24em;
+            }
+            &.s {
+              height: 11em;
+            }
           }
         }
       }
