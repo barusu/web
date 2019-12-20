@@ -17,6 +17,7 @@
         </div>
         <div class="msg" v-html="msg"></div>
       </div>
+      <o-footer class="footer"></o-footer>
     </div>
     <div class="content">
     </div>
@@ -26,8 +27,12 @@
 
 <script>
   import $ from '@/libs/ajax';
+  import oFooter from '@/components/footer';
 
   export default {
+    components: {
+      oFooter
+    },
     data() {
       return {
         height: 0,
@@ -113,6 +118,14 @@
       height: 100%;
       float: right;
       background: rgba(255,255,255,.25);
+      .oo-footer {
+        position: absolute;
+        bottom: 0;
+        span,
+        > a {
+          color: #fff;
+        }
+      }
     }
     .form-body {
       position: absolute;

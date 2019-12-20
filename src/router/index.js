@@ -15,6 +15,7 @@ import CodeIndex from '@/components/page/code/index';
 import CodeButton from '@/components/page/code/button';
 import CodeText from '@/components/page/code/text';
 import CodeCheckBox from '@/components/page/code/checkbox';
+import CodeBackground from '@/components/page/code/background';
 
 import Component from '@/components/page/component';
 import CIndex from '@/components/page/components/index';
@@ -57,6 +58,7 @@ export default new Router({
     {path: '/unboxing', name: 'unboxing', component: Unboxing, meta: {requiresAuth: true}},
     {path: '/code', component: Code, children: [
       {path: '', name: 'code', component: CodeIndex},
+      {path: 'background', name: 'code_background', component: CodeBackground},
       {path: 'checkbox', name: 'code_checkbox', component: CodeCheckBox},
       {path: 'text', name: 'code_text', component: CodeText},
       {path: 'button', name: 'code_button', component: CodeButton}

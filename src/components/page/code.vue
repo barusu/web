@@ -15,6 +15,16 @@
             <li class="oo-menu-item"> <router-link :to="{name: 'code_checkbox'}">Checkbox</router-link> </li>
           </ul>
         </p>
+        <input type="checkbox" id="ck_effects" class="oo-ck">
+        <p class="oo-menu-group">
+          <label for="ck_effects" class="oo-menu-group-title">
+            <div>Effects</div>
+            <span class="oo-arrow"></span>
+          </label>
+          <ul class="oo-menu-item-list">
+            <li class="oo-menu-item"> <router-link :to="{name: 'code_background'}">Background</router-link> </li>
+          </ul>
+        </p>
       </div>
     </div>
     <router-view class="content"></router-view>
@@ -100,6 +110,7 @@
       }
       .preview {
         margin-bottom: .5em;
+        padding-right: 5px;
       }
       .code-wrapper {
         margin-bottom: 1em;
@@ -108,6 +119,9 @@
           float: left;
           height: 100%;
           padding: 10px 5px 0 0;
+          &.full {
+            width: 100%;
+          }
         }
         .code-control {
           float: right;
